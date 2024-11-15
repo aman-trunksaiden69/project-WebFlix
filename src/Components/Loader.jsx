@@ -22,8 +22,8 @@ const Loader = () => {
       <img className="w-[50%] object-cover" src={looploader} alt="broken" />
         <h2 className="absolute top-[40%] text-[#0C141D] font-bold font-['gilroy']">Loading...</h2> 
         <div id="cursor"></div>
-        <h1 className='absolute top-[60%] text-9xl text-white'>
-        <span>WebFlix</span>
+        <h1 className='anim absolute top-[60%] text-9xl text-white'>
+        <span className="space">WebFlix</span>
         </h1>
       </div>
     </div>

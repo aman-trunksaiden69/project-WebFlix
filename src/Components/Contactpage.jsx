@@ -158,8 +158,8 @@ const Contactpage = () => {
           <h1 className='hover:text-blue-400 cursor-pointer hover:underline'>Corporate information</h1>
           </div>
           <div>
-          <h1 className='text-xl font-bold'>
-            <span>WebFlix</span>
+          <h1 className='anim text-xl font-bold'>
+            <span className='space'>WebFlix</span>
          </h1> 
           </div>
          </div>

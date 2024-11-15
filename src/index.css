@@ -43,7 +43,7 @@
         border-radius: 50px;
 }
 
-h1 .space{
+.anim .space{
         background-image: url(image.gif);
         background-position: center;
         color: transparent;
