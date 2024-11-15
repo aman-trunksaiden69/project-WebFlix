@@ -6,7 +6,7 @@ const Sidebar = () => {
     <div className='flex items-center justify-center gap-2'>
     <img className='w-[10%] h-[10%] rounded-md' src="/webflix1.jpg" alt="" />
     <h1 className='text-3xl text-white font-bold'>
-     <span>WebFlix</span>
+     <span className='space'>WebFlix</span>
     </h1>
     </div>
    

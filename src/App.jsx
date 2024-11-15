@@ -13,6 +13,8 @@ import Trailer from './Components/Templates/Trailer'
 import Notfound from './Components/Notfound'
 import Aboutpage from './Components/Aboutpage'
 import Contactpage from './Components/Contactpage'
+import './index.css';
+
 
 
 const App = () => {
