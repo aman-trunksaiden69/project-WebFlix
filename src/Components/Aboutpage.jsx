@@ -9,9 +9,11 @@ const Aboutpage = () => {
         <nav className='w-[100%] bg-black h-[15vh] text-white flex items-center gap-20'>
         <div className='flex items-center justify-start gap-2 pl-7'>
            <img className='w-[8%] mb-1 rounded-md' src="/webflix1.jpg" alt=""/>
-            <h1 className='anim text-3xl text-white font-bold'>
-              <span className='space'>WebFlix</span>
-            </h1>
+           <h1 className="anim flex items-center justify-center gap-2 text-2xl text-white">
+         <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
+          WebFlix
+         </span>
+         </h1>
         </div>
            <div className='flex gap-12 text-lg font-medium pr-5'>
            <h1 className='hover:text-purple-300 duration-100 hover:scale-110 cursor-pointer'>Impact</h1>
@@ -194,9 +196,11 @@ const Aboutpage = () => {
 
         <div className='relative w-[100%] h-[100vh] bg-black text-white flex flex-col'>
            <div className=' bg-black w-[100%] h-[50%]'>
-           <h1 className='anim absolute top-[10%] left-[16%] text-[150px] text-white font-bold'>
-              <span className='space'>WebFlix</span>
-           </h1>
+           <h1 className="anim flex items-center justify-center mt-20 gap-2 text-9xl text-white">
+         <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
+          WebFlix
+         </span>
+         </h1>
            </div>
 
            <div className='relative bg-gradient-to-r from-blue-400 via-pink-500 to-white w-[100%] h-[50%]'>

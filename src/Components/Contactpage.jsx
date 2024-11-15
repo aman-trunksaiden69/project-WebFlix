@@ -25,9 +25,11 @@ const Contactpage = () => {
         <nav className='w-[100%] bg-black h-[15vh] text-white flex gap-20 p-5'>
         <div className='flex items-center justify-center gap-2 w-[30%]'>
            <img className='w-[8%] mb-1 rounded-md' src="/webflix1.jpg" alt=""/>
-            <h1 className='text-3xl text-white font-bold'>
-             <span>WebFlix</span>
-            </h1> 
+           <h1 className="anim flex items-center justify-center gap-2 text-2xl text-white">
+         <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
+          WebFlix
+         </span>
+         </h1>
             <h1 className='text-xl font-semibold'>
                | Help Center
             </h1>
@@ -158,9 +160,11 @@ const Contactpage = () => {
           <h1 className='hover:text-blue-400 cursor-pointer hover:underline'>Corporate information</h1>
           </div>
           <div>
-          <h1 className='anim text-xl font-bold'>
-            <span className='space'>WebFlix</span>
-         </h1> 
+          <h1 className="anim flex items-center justify-center gap-2 text-lg text-white">
+         <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
+          WebFlix
+         </span>
+         </h1>
           </div>
          </div>
        </div>

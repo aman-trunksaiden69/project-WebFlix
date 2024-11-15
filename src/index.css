@@ -44,16 +44,8 @@
 }
 
 .anim .space{
-        background-image: url(image.gif);
-        background-position: center;
-        color: transparent;
-        background-size: cover;
         -webkit-background-clip: text;
         background-clip: text;
-        font-family: "Monument";
-        letter-spacing: 3px;
-        z-index: 10;
-        mix-blend-mode: difference;
 }
 
 

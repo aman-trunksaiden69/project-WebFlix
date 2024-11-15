@@ -5,9 +5,11 @@ const Sidebar = () => {
   return <div className='sidebar w-[25%] h-[99%] bg-[#000] rounded-lg border-[1px] border-[#FEB8E7] p-3 pt-8 overflow-auto overflow-x-auto'>
     <div className='flex items-center justify-center gap-2'>
     <img className='w-[10%] h-[10%] rounded-md' src="/webflix1.jpg" alt="" />
-    <h1 className='anim text-3xl text-white font-bold'>
-     <span className='space'>WebFlix</span>
-    </h1>
+        <h1 className="anim flex items-center justify-center gap-2 text-2xl text-white">
+         <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
+          WebFlix
+         </span>
+        </h1>
     </div>
    
    <div className='twonav flex flex-col gap-2 mt-8'>

@@ -1,19 +1,10 @@
-import { useEffect } from "react";
 import looploader from '/bubble.gif'
+import textimg from '/image.gif'
+
 
 
 const Loader = () => {
 
-
-  const cursor = () => {
-    var main = document.querySelector("#main");
-    var text = document.querySelector("span")
-    
-  }
-
-  useEffect(() => {
-   cursor() 
-  })
   
 
   return (
@@ -22,9 +13,12 @@ const Loader = () => {
       <img className="w-[50%] object-cover" src={looploader} alt="broken" />
         <h2 className="absolute top-[40%] text-[#0C141D] font-bold font-['gilroy']">Loading...</h2> 
         <div id="cursor"></div>
-        <h1 className='anim absolute top-[60%] text-9xl text-white'>
-        <span className="space">WebFlix</span>
+        <h1 className="anim absolute top-[60%] text-9xl text-white">
+         <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
+          WebFlix
+         </span>
         </h1>
+
       </div>
     </div>
   )
