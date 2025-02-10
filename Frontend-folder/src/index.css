@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::selection{
+        background-color: #fff;
+        color: #60A5FA;
+}
+
+/* For WebKit browsers */
+.home {
+        overflow: auto; /* or overflow-x: auto for horizontal */
+}
+      
+.about::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.about {
+        overflow: auto; /* or overflow-x: auto for horizontal */
+}
+      
+.home::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.trending::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.tvshow::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.season::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.tvdetail::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.contact::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.moviedetail::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.people::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.movie::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.popular::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+.sidebar::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+      
+.cardhorizon {
+        overflow: auto; /* or overflow-x: auto for horizontal */
+}
+      
+.cardhorizon::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+}
+
+
+::-webkit-scrollbar{
+        height: 7px;
+        width: 7px;
+}
+::-webkit-scrollbar-thumb{
+        background-color: #676666;
+        border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover{
+        background-color: #FEB8E7;
+        border-radius: 50px;
+}
+
+.anim .space{
+        -webkit-background-clip: text;
+        background-clip: text;
+}
+
+
+select{
+        outline: 0;
+        box-shadow: none;
+        border: 0 !important;
+        background: #18181B;
+        background-image: none;
+        flex: 0.7;
+        padding: 0 0.5rem;
+        color: #EC4899;
+        cursor: pointer;
+        font-size: 0.7rem;
+        font-family: "Open Sans", sans-serif;
+}
+select::-ms-expand{
+        display: none;
+}
+
+.select{
+        position: relative;
+        display: flex;
+        width: 8em;
+        height: 2em;
+        line-height: 2;
+        background: #18181B;
+        overflow: hidden;
+        border-radius: 0.25em;
+}
+
+.select::after{
+        content: "\25BC";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 1em;
+        background: #18181B;
+        cursor: pointer;
+        pointer-events: none;
+        transition: 0.25s all ease;
+}
+
+.select:hover::after{
+        color: #60A5FA;
+}
+
+
+.custom-placeholder::placeholder {
+        text-align: left; /* Align the placeholder text to the left */
+        padding-left: 0; /* Remove default padding */
+}
+      
