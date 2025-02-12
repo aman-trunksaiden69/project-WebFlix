@@ -33,7 +33,6 @@ const Registerpage = () => {
   if(response.status === 201){
      const data = response.data;
      setUser(data.user)
-     localStorage.setItem('user', JSON.stringify(data.user)); // Store user data in localStorage
      localStorage.setItem('token', data.token);
      Navigate('/Home');
   }

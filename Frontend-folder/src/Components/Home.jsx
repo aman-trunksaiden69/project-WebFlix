@@ -55,7 +55,7 @@ const Home = () => {
          </span>
         </h1>
 
-        <div className='h-full w-full mt-2'>
+        <div className='h-full rounded-md w-full mt-2'>
         <Topnav />
         </div>
     </div>      

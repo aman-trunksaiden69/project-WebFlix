@@ -29,7 +29,8 @@ module.exports.registerUser = async (req, res, next) => {
     username,
     email,
     age,
-    password: hashedPassword
+    password: hashedPassword,
+    photo
   });
 
   const token = await user.generateAuthToken();
@@ -86,7 +87,7 @@ module.exports.editProfile = async (req, res, next) => {
 
     // Update name and photo if provided  
     if (req.body.username) user.username = req.body.username;
-    if (req.file) user.photo = `/Uploads/${req.file.filename}`; // Update photo path
+    if (req.file) user.photo = `/uploads/${req.file.filename}`; // Update photo path
 
     // Save updated user details
     await user.save();

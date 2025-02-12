@@ -30,10 +30,11 @@ const Profile = () => {
               className='h-[15vh] w-[15vh] p-1 object-cover rounded-full border-white border-2' 
               src={user?.photo ? `${import.meta.env.VITE_BASE_URL}${user.photo}` : '/default-photo-url.jpg'}
               alt="" />
-            <h2 className='text-2xl text-white font-semibold capitalize'>{user?.username || "User"}</h2>
+            <h2 className='text-2xl text-white font-semibold capitalize'>{user?.username || "Loading..."}</h2>
           </Link>
 
           <div className='flex flex-col border-[2px] border-black h-[40%] w-[100%] justify-around gap-5 bg-[#ffffff70] rounded-lg p-2'>
+            
             <div className='flex justify-between'>
   
             <h1 className='text-lg flex gap-1 text-white font-semibold'>

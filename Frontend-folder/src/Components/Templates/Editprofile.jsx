@@ -16,8 +16,9 @@ const Editprofile = () => {
     
 
     useEffect(() => {
-        setUsername(user.username); // Pre-fill username with current data
+      if (user) setUsername(user.username);
     }, [user]);
+  
 
     const handleFileChange = (e) => {
         setProfilePhoto(e.target.files[0]);
