@@ -28,7 +28,13 @@ const Registerpage = () => {
     password: Password,
   }
 
-  const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser);
+  const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser, {
+    withCredentials: true,  //Cookies support
+    headers: {
+      'Content-Type': 'application/json'
+    }
+   }
+  );
 
   if(response.status === 201){
      const data = response.data;
