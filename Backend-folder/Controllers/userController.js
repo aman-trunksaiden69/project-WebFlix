@@ -30,7 +30,7 @@ module.exports.registerUser = async (req, res, next) => {
       email,
       age,
       password: hashedPassword,
-      photo: req.body.photo || ''  // Handle photo field properly
+      photo: req.body.photo || null  // Handle photo field properly
     });
 
     // Generating token
