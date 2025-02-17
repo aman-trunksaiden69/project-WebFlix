@@ -12,7 +12,7 @@ const Loader = () => {
           Loading...
         </h2> 
         <h1 className="anim absolute top-[80%] z-20 text-5xl text-white">
-         <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest mix-blend-difference">
+         <span  style={{backgroundImage: 'url(/image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest mix-blend-difference">
           WebFlix
          </span>
         </h1>
