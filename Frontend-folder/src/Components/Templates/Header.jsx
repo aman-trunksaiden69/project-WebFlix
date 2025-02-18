@@ -15,7 +15,7 @@ const Header = ({data}) => {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat"
     }} 
-    className='w-[100%] h-[50vh] flex flex-col items-start justify-center p-[5%] font-["gilroy"] border-1 border-pink-400 capitalize rounded-tl-3xl rounded-br-3xl'>
+    className='w-[100%] h-[50vh] flex flex-col items-start justify-center p-[5%] font-["gilroy"] border-2 border-pink-400 capitalize rounded-tl-3xl rounded-br-3xl'>
         <h1 className='w-[100%] text-xl font-extrabold text-white'>
         {data.name || data.title || data.original_name || data.original_title}
         </h1>

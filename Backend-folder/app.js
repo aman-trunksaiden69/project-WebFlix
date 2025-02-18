@@ -9,6 +9,7 @@ const connectDB = require('./DB/db');
 const userRoutes = require('./Routes/userRoutes');
 
 
+
 connectDB();    // Connect to MongoDB
 app.use(cors({
   origin: ['https://webflix-app-pr72.onrender.com'],
@@ -26,7 +27,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 app.get('/', (req, res) => {
-  res.send('hello from serverside!');
+  res.send('CORS is running!');
 });
 
 

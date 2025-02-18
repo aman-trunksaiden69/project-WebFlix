@@ -63,7 +63,7 @@ const Home = () => {
        <div className='flex flex-col gap-1 p-2'>
          <h1 className='text-pink-400 font-semibold text-xl mb-1'>New Feeds</h1>
       
-         <nav className='sidebar flex text-white border-1 border-pink-400 bg-[#212121] text-lg gap-1 font-["gilroy"] overflow-auto overflow-x-auto rounded-md'>
+         <nav className='sidebar flex text-white border-2 border-pink-400 bg-[#212121] text-lg gap-1 font-["gilroy"] overflow-auto overflow-x-auto rounded-md'>
             <Link to="/Trendingpage" className='hover:bg-blue-400 hover:text-black duration-300 rounded-md p-3'>
             <i className="mr-1 ri-fire-fill"></i>Trending</Link>
             <Link to="/Popularpage" className='hover:bg-blue-400 hover:text-black duration-300 rounded-md p-3'>
