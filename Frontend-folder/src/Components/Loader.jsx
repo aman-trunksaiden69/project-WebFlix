@@ -5,7 +5,7 @@ const Loader = () => {
   
 
   return (
-    <div className="relative w-screen h-screen bg-[#121212]">
+    <div className="relative w-screen h-screen bg-[#000000]">
       <div id="main" className="flex flex-col items-center">
       <img className="w-[80%] h-[90vh] object-cover" src={looploader} alt="broken" />
         <h2 className="absolute top-[45%] text-[#000] font-bold font-['gilroy']">
