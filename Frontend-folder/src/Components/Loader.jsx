@@ -5,13 +5,13 @@ const Loader = () => {
   
 
   return (
-    <div className="relative w-screen h-screen bg-[#000]">
+    <div className="relative w-screen h-screen bg-[#212121]">
       <div id="main" className="flex flex-col items-center">
       <img className="w-[80%] h-[90vh] object-cover" src={looploader} alt="broken" />
         <h2 className="absolute top-[45%] text-[#000] font-bold font-['gilroy']">
           Loading...
         </h2> 
-        <h1 className="anim absolute top-[80%] z-20 text-5xl text-white">
+        <h1 className="anim absolute top-[80%] z-20 text-5xl text-white font-semibold">
          <span  style={{backgroundImage: 'url(/image.gif)',}} className="space bg-center bg-cover text-transparent font-['monument'] tracking-wider mix-blend-difference">
           WebFlix
          </span>
