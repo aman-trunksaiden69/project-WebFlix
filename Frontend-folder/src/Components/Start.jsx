@@ -8,6 +8,7 @@ const Start = () => {
 
   return (
     <div className='flex flex-col justify-between h-screen w-screen bg-[#000] text-white font-["gilroy"]'>
+    
     <div className='h-[60%] w-full'>
      <img className='h-full w-full object-cover' src="/webflixstart.jpg" alt="" />  
 
@@ -18,15 +19,18 @@ const Start = () => {
 
     </div>
 
-    <p className='text-center ml-1 leading-4 mb-5 text-sm'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
+    <div className='h-[40%] flex flex-col items-center justify-between'>
+    <p className='text-center ml-1 leading-4 text-sm'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
     
-    <div className='h-[15%] w-full border-t-[1px] rounded-t-xl border-pink-400 flex items-center justify-center'>
+    <div className='w-full border-t-[1px] rounded-t-xl border-pink-400 flex items-center justify-center'>
 
       <Link to="/Login" 
         className='px-20 py-3 text-xl flex gap-2 bg-blue-600 rounded-md hover:border-[1px] hover:text-black hover:border-white hover:bg-blue-300'>
         Let's Started
         <i className="ri-arrow-right-line"></i>
       </Link>
+
+    </div>
 
     </div>
   
