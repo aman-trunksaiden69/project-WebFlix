@@ -20,7 +20,7 @@ const Start = () => {
     </div>
 
     <div className='h-[40%] flex flex-col items-center justify-between'>
-    <p className='text-center ml-1 leading-4 text-sm'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
+    <p className='text-center ml-1 leading-4 mt-2 text-sm'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
     
     <div className='w-full p-3 border-t-[1px] rounded-t-xl border-pink-400 flex items-center justify-center'>
 
