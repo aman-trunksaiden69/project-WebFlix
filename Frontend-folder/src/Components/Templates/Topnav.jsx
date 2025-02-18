@@ -37,7 +37,7 @@ const Topnav = () => {
   };
 
   return (
-    <div className="flex items-center gap-2 p-2 w-[100%] h-[10vh] rounded-lg relative">
+    <div className="flex items-center gap-2 p-1 w-[100%] h-[10vh] rounded-lg relative">
       {/* Logo */}
       <div className="h-full flex items-center">
         <img className="h-9  rounded-md" src="/webflix1.jpg" alt="Webflix Logo" />

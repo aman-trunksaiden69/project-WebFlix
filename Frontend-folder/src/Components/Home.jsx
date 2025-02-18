@@ -60,7 +60,7 @@ const Home = () => {
         </div>
     </div>      
     
-       <div className='flex flex-col gap-1 p-2'>
+       <div className='flex flex-col gap-1 p-1'>
          <h1 className='text-pink-400 font-semibold text-xl mb-1'>New Feeds</h1>
       
          <nav className='sidebar flex text-white border-[1px] border-pink-400 bg-[#212121] text-lg gap-1 font-["gilroy"] overflow-auto overflow-x-auto rounded-md'>
@@ -79,18 +79,18 @@ const Home = () => {
          
        </div>
 
-       <div className='p-2'>
+       <div className='p-1'>
        <Header data={wallpaper} />
        </div>
 
       
 
-      <div className='flex justify-between p-2'>
+      <div className='flex justify-between p-1'>
       <h1 className='text-xl font-semibold text-pink-400'>New Releases</h1>
       <Dropdown title="Filter" options={['tv', "movie", "all"]} func={(e) => setCategory(e.target.value)} />      
       </div>
       
-      <div className='flex items-center justify-center p-2'>
+      <div className='flex items-center justify-center p-1'>
       <Cardhorizon data={trending} />
       </div>
   
