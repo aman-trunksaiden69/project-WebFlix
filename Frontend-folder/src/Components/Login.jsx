@@ -56,7 +56,7 @@ const Login = () => {
         }}
         className="w-screen h-screen flex items-center justify-center bg-cover bg-center font-['gilroy']"
       >
-        <div className="w-[90%] h-[75vh] bg-[#0000004f] border-[1px] border-white rounded-xl flex flex-col items-center justify-center">
+        <div className="w-[90%] h-[75vh] shadow-[2px_4px_4px_rgba(0,1,0,0.5)] bg-[#0000006d] border-[1px] border-white rounded-xl flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold text-white mb-8">Login</h1>
           <div className='p-2'>
             <form onSubmit={submitHandler} method="post" encType="multipart/form-data" 

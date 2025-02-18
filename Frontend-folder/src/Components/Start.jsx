@@ -11,14 +11,14 @@ const Start = () => {
     <div className='h-[60%] w-full'>
      <img className='h-full w-full object-cover' src="/webflixstart.jpg" alt="" />  
 
-     <div className='bg-[#000000b7] flex flex-col gap-6 items-center justify-center w-full h-[20%] absolute top-[46%]'>
-     <img className='w-[20%] h-[46%] rounded-md' src="/webflix1.jpg" alt="" /> 
-     <h1 className='text-3xl font-medium'>Movies<span className='text-pink-400'>Watch</span></h1>
+     <div className='bg-[#00000090] flex flex-col gap-6 items-center justify-center w-full h-[20%] absolute top-[46%]'>
+     <img className='w-[16%] h-[46%] rounded-md' src="/webflix1.jpg" alt="" /> 
+     <h1 className='text-2xl font-medium'>Movies<span className='text-pink-400'>Watch</span></h1>
      </div>  
 
     </div>
 
-    <p className='text-center ml-5 leading-4 mb-12'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
+    <p className='text-center ml-5 leading-4 mb-12 text-sm'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
     
     <div className='h-[15%] w-full border-t-[1px] rounded-t-xl border-pink-400 flex items-center justify-center'>
 
