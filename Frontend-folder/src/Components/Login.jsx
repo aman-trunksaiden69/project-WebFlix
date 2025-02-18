@@ -56,7 +56,7 @@ const Login = () => {
         }}
         className="w-screen h-screen flex items-center justify-center bg-cover bg-center font-['gilroy']"
       >
-        <div className="w-[90%] h-[75vh] shadow-[2px_4px_4px_rgba(0,1,0,0.5)] bg-[#00000079] border-[1px] border-white rounded-xl flex flex-col items-center justify-center">
+        <div className="w-[90%] h-[75vh] bg-[#0000004f] border-[1px] border-white rounded-xl flex flex-col items-center justify-center">
           <h1 className="text-3xl font-bold text-white mb-8">Login</h1>
           <div className='p-2'>
             <form onSubmit={submitHandler} method="post" encType="multipart/form-data" 
@@ -87,14 +87,14 @@ const Login = () => {
                 </button>
               </div>
               <h1 className='text-zinc-400 text-md font-normal'>OR</h1>
-              <div className='w-[100%]'>
+              <div className='w-[99%]'>
                 <button className="w-full flex justify-center py-2 border border-transparent rounded-md shadow-sm text-xl font-semibold text-black bg-white focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500">
                   <FcGoogle />
                 </button>
               </div>
             </form>
             <div className='flex items-center justify-center mt-2'>
-              <p className="text-white font-medium text-md">
+              <p className="text-white font-medium text-sm">
                 New to WebFlix?<Link to="/Signup" className='hover:text-pink-400 pl-1 hover:underline'>Sign up</Link>
               </p>
             </div>
