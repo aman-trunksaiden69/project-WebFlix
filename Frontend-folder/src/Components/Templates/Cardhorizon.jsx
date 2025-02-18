@@ -10,7 +10,7 @@ const Cardhorizon = ({data}) => {
      
       {data.length > 0 ? data.map((d, i) => (
       <Link to={`/${d.media_type}/details/${d.id}`} key={i}
-        className='min-w-[57%] h-full mr-3 bg-zinc-900 rounded-tl-3xl rounded-br-3xl flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-2'>
+        className='min-w-[57%] h-full mr-3 bg-[#212121] border-1 border-pink-400 rounded-tl-3xl rounded-br-3xl flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-2'>
         <img className='w-full h-[50%] object-cover rounded-tl-3xl' 
             src={d.poster_path || d.backdrop_path ? `https://image.tmdb.org/t/p/original/${
               d.poster_path ||d.backdrop_path
