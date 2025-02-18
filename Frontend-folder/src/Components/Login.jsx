@@ -56,8 +56,8 @@ const Login = () => {
         }}
         className="w-screen h-screen flex items-center justify-center bg-cover bg-center font-['gilroy']"
       >
-        <div className="w-[90%] h-[75vh] shadow-[2px_4px_4px_rgba(0,1,0,0.5)] bg-[#00000096] border-[1px] border-white rounded-xl flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-bold text-white mb-8">Login</h1>
+        <div className="w-[90%] h-[75vh] shadow-[2px_4px_4px_rgba(0,1,0,0.5)] bg-[#00000079] border-[1px] border-white rounded-xl flex flex-col items-center justify-center">
+          <h1 className="text-3xl font-bold text-white mb-8">Login</h1>
           <div className='p-2'>
             <form onSubmit={submitHandler} method="post" encType="multipart/form-data" 
              className="flex flex-col items-center gap-3 justify-center">
@@ -67,7 +67,7 @@ const Login = () => {
                 value={Email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className='focus:outline-none hover:border-pink-700 px-6 py-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
+                className='focus:outline-none hover:border-pink-700 px-3 py-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
               />
 
               <input 
@@ -76,7 +76,7 @@ const Login = () => {
                 value={Password}
                 onChange={(e) => setPassword(e.target.value)}
                 required 
-                className='focus:outline-none hover:border-pink-700 px-6 py-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
+                className='focus:outline-none hover:border-pink-700 px-3 py-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
               />
 
               {error && <div className="text-red-600 text-sm">{error}</div>}  {/* Display error */}
