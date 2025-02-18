@@ -18,7 +18,7 @@ const Start = () => {
 
     </div>
 
-    <p className='text-center ml-1 leading-4 mb-12 text-sm'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
+    <p className='text-center ml-1 leading-4 mb-5 text-sm'>Watch unlimited movies, series & TV shows anywhere, anytime</p>  
     
     <div className='h-[15%] w-full border-t-[1px] rounded-t-xl border-pink-400 flex items-center justify-center'>
 
