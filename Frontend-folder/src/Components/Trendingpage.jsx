@@ -74,7 +74,7 @@ const Trendingpage = () => {
         </h1>
       </div>
 
-      <div className='dropdown flex gap-1 items-center w-[60%]'>
+      <div className='dropdown flex gap-1 items-center w-[62%]'>
         <Dropdown 
           title="Category" 
           options={["movie", "tv", "all"]} 
