@@ -55,7 +55,7 @@ const Movie = () => {
 
   return getmovie.length > 0 ? (
   
-  <div className='movie w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-400 via-pink-500 to-white flex flex-col gap-1 items-center'>
+  <div className='movie w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-300 via-pink-400 to-white flex flex-col gap-1 items-center'>
 
   <div className='flex p-2 h-[15%] w-[100%] bg-black'>
     <div className='w-full flex items-center justify-between'>

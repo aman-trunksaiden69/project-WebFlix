@@ -64,7 +64,7 @@ const Peoplepage = () => {
 
   return getpeople.length > 0 ? ( 
   
-  <div className='people w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-400 via-pink-500 to-white flex flex-col gap-1 items-center'>
+  <div className='people w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-300 via-pink-400 to-white flex flex-col gap-1 items-center'>
 
   <div className='h-[15%] w-[100%] bg-black'>
     <div className='w-full p-2 flex items-center justify-between'>

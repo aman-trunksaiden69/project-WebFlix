@@ -21,15 +21,15 @@ const Contactpage = () => {
    
 
   return (
-    <div className='contact relative h-screen w-screen bg-gradient-to-r from-blue-400 via-pink-500 to-white font-["gilroy"] text-white'>
+    <div className='contact relative h-screen w-screen bg-gradient-to-r from-blue-300 via-pink-400 to-white font-["gilroy"] text-white'>
         <nav className='w-[100%] bg-black h-[15%] text-white flex'>
-        <div className='flex items-center justify-center gap-2 w-[80%]'>
+        <div className='flex items-center justify-center gap-2 w-[100%]'>
            <img className='w-[4vh] mb-1 rounded-md' src="/webflix1.jpg" alt=""/>
-           <h1 className="anim flex items-center justify-center gap-2 text-xl text-white">
-         <span  style={{backgroundImage: 'url(image.gif)',}}
-           className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
-          WebFlix
-         </span>
+           <h1 className="anim flex items-center justify-center font-semibold gap-2 text-xl text-white">
+            <span  style={{backgroundImage: 'url(image.gif)',}}
+            className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
+            WebFlix
+            </span>
            </h1>
            <h1 className='text-md font-semibold'>
                | Help Center
@@ -52,8 +52,8 @@ const Contactpage = () => {
          </p>
 
         <div className={`border-[1px] border-black rounded-md transition-all duration-500 ease-in-out cursor-pointer overflow-hidden ${
-        isOpen ? 'h-[35%]' : 'h-10'
-      } w-[80%]`}
+        isOpen ? 'h-[37%]' : 'h-10'
+      } w-[85%]`}
     >
       {/* Always visible setup the app and triangle */}
       <li className="font-semibold flex items-center cursor-pointer pt-2 pl-1" onClick={toggleContent}>
@@ -87,8 +87,8 @@ const Contactpage = () => {
 
         <div
         className={`border-[1px] border-black rounded-md transition-all duration-500 ease-in-out cursor-pointer overflow-hidden ${
-        isVisible ? 'h-[75%]' : 'h-10'
-      } w-[80%] mt-3`}
+        isVisible ? 'h-[80%]' : 'h-10'
+      } w-[85%] mt-3`}
     >
       {/* Always visible part */}
       <li className="font-semibold flex items-center cursor-pointer pl-1 pt-2" onClick={handleToggle}>
@@ -149,7 +149,7 @@ const Contactpage = () => {
            </h2>
         </div>
 
-        <div className='h-[30%] w-[100%] bg-black rounded-tl-3xl rounded-tr-3xl'>
+        <div className='h-[35%] w-[100%] bg-black rounded-tl-3xl rounded-tr-3xl'>
          <div className='flex items-center gap-4 p-3 ml-2'>
          <h1 className='text-white text-lg font-semibold'>Need more help?</h1>
          <button className='w-[120px] h-[35px] bg-white hover:text-blue-400 rounded-md text-sm text-black'>Contact Us</button>
@@ -163,7 +163,7 @@ const Contactpage = () => {
           <h1 className='hover:text-blue-400 cursor-pointer hover:underline text-sm'>Corporate information</h1>
           </div>
           <div>
-          <h1 className="anim flex items-center justify-center gap-2 text-xl text-white">
+          <h1 className="anim flex items-center justify-center font-semibold gap-2 text-xl text-white">
          <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
           WebFlix
          </span>

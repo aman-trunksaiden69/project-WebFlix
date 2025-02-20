@@ -27,7 +27,7 @@ import Editprofile from './Components/Templates/Editprofile'
 const App = () => {
 
 
-  return <div className='home w-screen h-screen bg-gradient-to-r from-blue-400 via-pink-500 to-white flex items-center justify-center gap-1'>      
+  return <div className='home w-screen h-screen bg-gradient-to-r from-blue-300 via-pink-400 to-white flex items-center justify-center gap-1'>      
       <Routes>
         <Route path='/' element={<Start />} /> 
         <Route path='/Editprofile' element={<Authenticatedroutes><Editprofile /></Authenticatedroutes>} /> 

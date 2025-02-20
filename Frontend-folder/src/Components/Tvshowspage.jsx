@@ -55,7 +55,7 @@ const Tvshowspage = () => {
 
   return gettvshows.length > 0 ? ( 
   
-  <div className='tvshow w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-400 via-pink-500 to-white flex flex-col gap-1 items-center'>
+  <div className='tvshow w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-300 via-pink-400 to-white flex flex-col gap-1 items-center'>
 
   <div className='h-[15%] w-[100%] p-2 gap-5 bg-black flex items-center justify-center'>
     <div className='w-full flex items-center'>

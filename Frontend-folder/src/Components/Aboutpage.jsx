@@ -159,7 +159,7 @@ const Aboutpage = () => {
       
           <div className='cardhorizon w-[100%] flex h-[65vh] pt-5 overflow-y-hidden'>
    
-            <div className='min-w-[100%] h-full mr-5 bg-zinc-900 flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-3'>
+            <div className='min-w-[100%] h-full mr-5 bg-[#3F3F3F] flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-3'>
                <img className='w-full h-[55%] object-cover' src="./aboutimg9.avif" alt="broken"/>
                 <div className='p-2'>
                 <h1 className="text-lg font-bold text-pink-400">
@@ -176,7 +176,7 @@ const Aboutpage = () => {
                </div>
             </div> 
 
-            <div className='min-w-[100%] h-full mr-5 bg-zinc-900 flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-3'>
+            <div className='min-w-[100%] h-full mr-5 bg-[#3F3F3F] flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-3'>
                <img className='w-full h-[55%] object-cover' src="./aboutimg10.jpg" alt="broken"/>
                 <div className='p-2'>
                 <h1 className="text-lg font-bold text-pink-400">
@@ -193,7 +193,7 @@ const Aboutpage = () => {
                </div>
             </div> 
 
-            <div className='min-w-[100%] h-full mr-5 bg-zinc-900 flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-3'>
+            <div className='min-w-[100%] h-full mr-5 bg-[#3F3F3F] flex flex-col hover:scale-105 duration-150 hover:cursor-pointer gap-3'>
                <img className='w-full h-[55%] object-cover' src="./aboutimg11.jpg" alt="broken"/>
                 <div className='p-2'>
                 <h1 className="text-lg font-bold text-pink-400">
@@ -223,7 +223,7 @@ const Aboutpage = () => {
            </h1>
           </div>
 
-           <div className='relative bg-gradient-to-r from-blue-300 via-pink-400 to-white w-[100%] h-[100%]'>
+           <div className='relative bg-gradient-to-r from-blue-300 via-pink-400 to-white w-[100%] h-[100vh]'>
             <div className='p-2 h-[85%]'>
               <h1 className='text-md font-black text-black'>Quotes-</h1>
                <p className='text-sm font-medium text-[#1E1E1E]'>
@@ -240,21 +240,21 @@ const Aboutpage = () => {
                enjoy, all while providing seamless access to the best content available.
                </p>
 
-               <div className='absolute top-[50%] left-[2%] text-black font-bold flex flex-col gap-4'>
+               <div className='absolute top-[52%] left-[2%] text-black font-bold flex flex-col gap-4'>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Entertainment</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Account</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Careers</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Services</h1>
                </div>
 
-               <div className='absolute top-[50%] left-[40%] text-black font-bold flex flex-col gap-4'>
+               <div className='absolute top-[52%] left-[40%] text-black font-bold flex flex-col gap-4'>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Blogs</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>FAQs</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Contact us</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Members</h1>
                </div>
 
-               <div className='absolute top-[50%] left-[70%] text-black font-bold flex flex-col gap-4'>
+               <div className='absolute top-[52%] left-[70%] text-black font-bold flex flex-col gap-4'>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Investors</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Newsroom</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Accessibility</h1>
