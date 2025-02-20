@@ -23,7 +23,7 @@ const Contactpage = () => {
   return (
     <div className='contact relative h-screen w-screen bg-gradient-to-r from-blue-300 via-pink-400 to-white font-["gilroy"] text-white'>
         <nav className='w-[100%] bg-black h-[15%] text-white flex'>
-        <div className='flex items-center justify-center gap-2 w-[100%]'>
+        <div className='flex items-center justify-center gap-2 w-[70%]'>
            <img className='w-[4vh] mb-1 rounded-md' src="/webflix1.jpg" alt=""/>
            <h1 className="anim flex items-center justify-center font-semibold gap-2 text-xl text-white">
             <span  style={{backgroundImage: 'url(image.gif)',}}
@@ -149,7 +149,7 @@ const Contactpage = () => {
            </h2>
         </div>
 
-        <div className='h-[35%] w-[100%] bg-black rounded-tl-3xl rounded-tr-3xl'>
+        <div className='h-[33%] w-[100%] bg-black rounded-tl-3xl rounded-tr-3xl'>
          <div className='flex items-center gap-4 p-3 ml-2'>
          <h1 className='text-white text-lg font-semibold'>Need more help?</h1>
          <button className='w-[120px] h-[35px] bg-white hover:text-blue-400 rounded-md text-sm text-black'>Contact Us</button>

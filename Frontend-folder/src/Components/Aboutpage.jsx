@@ -214,7 +214,7 @@ const Aboutpage = () => {
          
         </div>
 
-        <div className='relative w-[100%] h-[100vh] bg-black text-white flex flex-col'>
+        <div className='relative w-[100%] h-[90vh] bg-black text-white flex flex-col'>
           <div className=' bg-black w-[100%] h-[10%]'>
            <h1 className="anim flex items-center justify-center font-semibold gap-2 text-2xl text-white">
             <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
@@ -223,7 +223,7 @@ const Aboutpage = () => {
            </h1>
           </div>
 
-           <div className='relative bg-gradient-to-r from-blue-300 via-pink-400 to-white w-[100%] h-[100vh]'>
+           <div className='relative bg-gradient-to-r from-blue-300 via-pink-400 to-white w-[100%] h-[100%]'>
             <div className='p-2 h-[85%]'>
               <h1 className='text-md font-black text-black'>Quotes-</h1>
                <p className='text-sm font-medium text-[#1E1E1E]'>
@@ -275,8 +275,7 @@ const Aboutpage = () => {
                
             </div>
 
-           </div>
-         
+           </div>         
          
         </div>
 
