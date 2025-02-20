@@ -40,7 +40,7 @@ const Tvdetails = () => {
       className="tvdetail relative w-screen h-screen p-2 overflow-auto overflow-x-hidden font-['gilroy']"
     >
       {/* Part 1 navigation */}
-      <nav className="h-[10vh] w-[65%] text-black flex items-center gap-7 rounded-lg p-2 mt-2 text-xl bg-[#ffffff70]">
+      <nav className="h-[10vh] w-[65%] text-black flex items-center gap-7 rounded-lg p-2 mt-2 text-xl bg-[#ffffff80]">
         <Link
           onClick={() => navigate(-1)}
           className="hover:text-blue-400 ri-arrow-left-line"
@@ -64,7 +64,7 @@ const Tvdetails = () => {
       </nav>
 
       {/* Part 2 Poster and details */}
-      <div className="relative w-full flex flex-col text-white bg-[#ffffff70] rounded-lg p-2 mt-2">
+      <div className="relative w-full flex flex-col text-white bg-[#ffffff80] rounded-lg p-2 mt-2">
         <img
           className="shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] h-[50vh] object-cover  "
           src={`https://image.tmdb.org/t/p/original/${
@@ -131,9 +131,9 @@ const Tvdetails = () => {
       </div>
 
       {/* Part 3 Available on Platforms */}
-      <div className="w-[70%] font-semibold flex flex-col gap-y-5 mt-4 bg-[#ffffff70] rounded-lg p-2">
+      <div className="w-[70%] font-semibold flex flex-col gap-y-5 mt-4 bg-[#ffffff80] rounded-lg p-2">
         {info.watchproviders && info.watchproviders.flatrate && (
-          <div className="flex gap-x-10 text-sm items-center text-white">
+          <div className="flex gap-x-5 text-sm items-center text-white">
             <h1>Available on Plateforms</h1>
             {info.watchproviders.flatrate.map((w, i) => (
               <img
@@ -148,7 +148,7 @@ const Tvdetails = () => {
         )}
 
         {info.watchproviders && info.watchproviders.rent && (
-          <div className="flex gap-x-10 text-sm items-center text-white">
+          <div className="flex gap-x-5 text-sm items-center text-white">
             <h1>Available on Buy</h1>
             {info.watchproviders.rent.map((w, i) => (
               <img
@@ -163,7 +163,7 @@ const Tvdetails = () => {
         )}
 
         {info.watchproviders && info.watchproviders.buy && (
-          <div className="flex gap-x-10 text-sm items-center text-white">
+          <div className="flex gap-x-5 text-sm items-center text-white">
             <h1>Available to Rent</h1>
             {info.watchproviders.buy.map((w, i) => (
               <img
@@ -181,7 +181,7 @@ const Tvdetails = () => {
       
       {/* Part 4 Seasons */}
 
-      <hr className="mt-10 mb-5 border-none h-[2px] bg-[#ffffff70] " />
+      <hr className="mt-10 mb-5 border-none h-[2px] bg-[#ffffff80] " />
 
       <h1 className=" text-xl font-bold text-white">Seasons:</h1>
       <div className="season w-[100%] flex gap-2 overflow-y-hidden p-2 ">
@@ -214,7 +214,7 @@ const Tvdetails = () => {
 
       {/* Part 5 Recommendations and Similar Stuff */}
 
-      <hr className="mt-10 mb-5 border-none h-[2px] bg-[#ffffff70] " />
+      <hr className="mt-10 mb-5 border-none h-[2px] bg-[#ffffff80] " />
 
       <h1 className=" text-xl mb-3 font-bold text-white">
         Recommendations & Must-Watch:
