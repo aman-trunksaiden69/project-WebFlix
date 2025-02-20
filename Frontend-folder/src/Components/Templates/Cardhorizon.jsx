@@ -4,9 +4,9 @@ import noimage from '/noimage.jpg'
 
 const Cardhorizon = ({data}) => {
   
-  return <div className='w-screen h-[50vh] font-["gilroy"] p-2 flex items-center'>
+  return <div className='h-[50vh] font-["gilroy"] p-2 flex items-center'>
  
-    <div className='cardhorizon w-[100%] flex h-[50%] overflow-y-hidden border-[1px] border-pink-400 rounded-tl-3xl rounded-br-3xl'>
+    <div className='cardhorizon w-[100%] flex h-[50vh] overflow-y-hidden border-[1px] border-pink-400 rounded-tl-3xl rounded-br-3xl'>
      
       {data.length > 0 ? data.map((d, i) => (
       <Link to={`/${d.media_type}/details/${d.id}`} key={i}
