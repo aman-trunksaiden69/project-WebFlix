@@ -25,7 +25,7 @@ const Profile = () => {
       <div className='flex flex-col justify-between h-[90%] w-[100%] p-2 '>
           <Link 
            to="/Editprofile" 
-           className='flex h-[25%] border-[2px] border-black w-[100%] items-center gap-3 bg-[#ffffff70] rounded-lg duration-150 p-2 hover:scale-105 hover:border-[2px] hover:border-pink-400'>
+           className='flex h-[25%] border-[2px] border-black w-[100%] items-center gap-3 bg-[#3F3F3F] rounded-lg duration-150 p-2 hover:scale-105 hover:border-[2px] hover:border-pink-400'>
             <img 
               className='h-[15vh] w-[15vh] p-1 object-cover rounded-full border-white border-2' 
               src={user?.photo ? `${import.meta.env.VITE_BASE_URL}${user.photo}` : '/default-photo-url.jpg'}
@@ -33,7 +33,7 @@ const Profile = () => {
             <h2 className='text-2xl text-white font-semibold capitalize'>{user?.username || "Loading..."}</h2>
           </Link>
 
-          <div className='flex flex-col border-[2px] border-black h-[40%] w-[100%] justify-around gap-5 bg-[#ffffff70] rounded-lg p-2'>
+          <div className='flex flex-col border-[2px] border-black h-[40%] w-[100%] justify-around gap-5 bg-[#3F3F3F] rounded-lg p-2'>
             
             <div className='flex justify-between'>
   
