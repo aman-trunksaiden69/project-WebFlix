@@ -97,7 +97,7 @@ select{
         outline: 0;
         box-shadow: none;
         border: 0 !important;
-        background: #18181B;
+        background: #3F3F3F;
         background-image: none;
         flex: 0.7;
         padding: 0 0.5rem;
@@ -116,7 +116,7 @@ select::-ms-expand{
         width: 8em;
         height: 2em;
         line-height: 2;
-        background: #18181B;
+        background: #3F3F3F;
         overflow: hidden;
         border-radius: 0.25em;
 }
@@ -127,7 +127,7 @@ select::-ms-expand{
         bottom: 0;
         right: 0;
         padding: 0 1em;
-        background: #18181B;
+        background: #3F3F3F;
         cursor: pointer;
         pointer-events: none;
         transition: 0.25s all ease;
