@@ -14,7 +14,7 @@ const Aboutpage = () => {
         </h1>
       </nav>
 
-      <div className='sidebar flex bg-[#18181B] mb-6 text-lg gap-1 overflow-auto overflow-x-auto rounded-md'>
+      <div className='sidebar flex bg-[#3F3F3F] mb-6 text-lg gap-1 overflow-auto overflow-x-auto rounded-md'>
             <div to="/Trendingpage" className='hover:bg-blue-400 hover:text-black duration-300 rounded-md p-3'>
             Impact
             </div>
@@ -216,14 +216,14 @@ const Aboutpage = () => {
 
         <div className='relative w-[100%] h-[100vh] bg-black text-white flex flex-col'>
           <div className=' bg-black w-[100%] h-[10%]'>
-           <h1 className="anim flex items-center justify-center gap-2 text-2xl text-white">
+           <h1 className="anim flex items-center justify-center font-semibold gap-2 text-2xl text-white">
             <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
              WebFlix
             </span>
            </h1>
           </div>
 
-           <div className='relative bg-gradient-to-r from-blue-400 via-pink-500 to-white w-[100%] h-[100%]'>
+           <div className='relative bg-gradient-to-r from-blue-300 via-pink-400 to-white w-[100%] h-[100%]'>
             <div className='p-2 h-[85%]'>
               <h1 className='text-md font-black text-black'>Quotes-</h1>
                <p className='text-sm font-medium text-[#1E1E1E]'>
@@ -240,21 +240,21 @@ const Aboutpage = () => {
                enjoy, all while providing seamless access to the best content available.
                </p>
 
-               <div className='absolute top-[48%] left-[2%] text-black font-bold flex flex-col gap-4'>
+               <div className='absolute top-[50%] left-[2%] text-black font-bold flex flex-col gap-4'>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Entertainment</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Account</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Careers</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Services</h1>
                </div>
 
-               <div className='absolute top-[48%] left-[40%] text-black font-bold flex flex-col gap-4'>
+               <div className='absolute top-[50%] left-[40%] text-black font-bold flex flex-col gap-4'>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Blogs</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>FAQs</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Contact us</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Members</h1>
                </div>
 
-               <div className='absolute top-[48%] left-[70%] text-black font-bold flex flex-col gap-4'>
+               <div className='absolute top-[50%] left-[70%] text-black font-bold flex flex-col gap-4'>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Investors</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Newsroom</h1>
                <h1 className='hover:scale-105 cursor-pointer hover:text-white duration-100'>Accessibility</h1>
@@ -266,7 +266,7 @@ const Aboutpage = () => {
                <p className='text-[#1E1E1E] text-[12px]'>Copyright © 2024 Webflix Inc. All rights reserved.</p>
               </div>
 
-              <div className='absolute top-[79%] left-[0%] w-[100%] h-[10%] p-2 flex items-center text-3xl justify-between'>
+              <div className='absolute top-[81%] left-[0%] w-[100%] h-[10%] p-2 flex items-center text-3xl justify-between'>
               <i className="hover:text-pink-600 ri-instagram-line"></i>
               <i className="hover:text-blue-600 ri-twitter-fill"></i>
               <i className="hover:text-red-600 ri-youtube-line"></i>

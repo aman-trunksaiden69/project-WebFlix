@@ -37,7 +37,7 @@ const Profile = () => {
             
             <div className='flex justify-between'>
   
-            <h1 className='text-lg flex gap-1 text-white font-semibold'>
+            <h1 className='text-lg flex gap-1 text-white font-normal'>
             <i className="ri-information-2-fill"></i> 
             About
             </h1>
@@ -46,7 +46,7 @@ const Profile = () => {
 
             <div className='flex justify-between'>
   
-            <h1 className='text-lg flex gap-1 text-white font-semibold'>
+            <h1 className='text-lg flex gap-1 text-white font-normal'>
             <i className="ri-phone-fill"></i> 
             Contact
             </h1>
@@ -55,7 +55,7 @@ const Profile = () => {
 
             <div className='flex justify-between'>
   
-            <h1 className='text-lg flex gap-1 text-white font-semibold'>
+            <h1 className='text-lg flex gap-1 text-white font-normal'>
             <i className="ri-logout-box-r-line"></i> 
             Logout
             </h1>
