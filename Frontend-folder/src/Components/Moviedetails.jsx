@@ -38,7 +38,7 @@ const Moviedetails = () => {
       className="moviedetail relative w-screen h-screen overflow-auto overflow-x-hidden p-2 font-['gilroy']"
     >
       {/* Part 1 navigation */}
-      <nav className="h-[10vh] w-[65%] text-black bg-[#ffffff70] flex items-center gap-7 text-xl rounded-lg p-2 mt-2">
+      <nav className="h-[10vh] w-[65%] text-black bg-[#ffffff80] flex items-center gap-7 text-xl rounded-lg p-2 mt-2">
         <Link
           onClick={() => navigate(-1)}
           className="hover:text-blue-400 ri-arrow-left-line"
@@ -63,7 +63,7 @@ const Moviedetails = () => {
 
       {/* Part 2 Poster and details */}
 
-      <div className="relative w-full flex flex-col text-white bg-[#ffffff70] rounded-lg p-2 mt-2">
+      <div className="relative w-full flex flex-col text-white bg-[#ffffff80] rounded-lg p-2 mt-2">
         <img
           className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] h-[50vh] object-cover  "
           src={`https://image.tmdb.org/t/p/original/${
@@ -131,7 +131,7 @@ const Moviedetails = () => {
       </div>
 
       {/* Part 3 Available on Platforms */}
-      <div className="w-[100%] font-semibold flex flex-col gap-y-5 mt-4 bg-[#ffffff70] rounded-lg p-2">
+      <div className="w-[100%] font-semibold flex flex-col gap-y-5 mt-4 bg-[#ffffff80] rounded-lg p-2">
         {info.watchproviders && info.watchproviders.flatrate && (
           <div className="flex gap-x-4 text-sm items-center text-white">
             <h1>Available on Plateforms</h1>
@@ -180,7 +180,7 @@ const Moviedetails = () => {
 
       {/* Part 4 Recommendations and Similar Stuff */}
 
-      <hr className="mt-10 mb-5 border-none h-[2px] bg-[#ffffff70] " />
+      <hr className="mt-10 mb-5 border-none h-[2px] bg-[#ffffff80] " />
 
       <h1 className=" text-xl mb-3 font-bold text-white">
         Recommendations & Must-Watch:

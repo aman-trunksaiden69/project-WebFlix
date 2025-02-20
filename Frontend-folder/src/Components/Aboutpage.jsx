@@ -7,7 +7,7 @@ const Aboutpage = () => {
   return (
     <div className='about relative p-2 bg-black w-screen h-screen font-["gilroy"] text-white overflow-auto overflow-x-auto'>
       <nav className='flex w-[100%] bg-black h-[10vh] text-white items-center justify-center'>
-        <h1 className="anim flex items-center justify-center text-3xl">
+        <h1 className="anim flex items-center justify-center font-semibold text-3xl">
          <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
           WebFlix
          </span>
