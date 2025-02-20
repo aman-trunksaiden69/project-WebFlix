@@ -23,7 +23,7 @@ const Contactpage = () => {
   return (
     <div className='contact relative h-screen w-screen bg-gradient-to-r from-blue-300 via-pink-400 to-white font-["gilroy"] text-white'>
         <nav className='w-[100%] bg-black h-[15%] text-white flex'>
-        <div className='flex items-center justify-center gap-2 w-[70%]'>
+        <div className='flex items-center justify-center gap-2 w-[68%]'>
            <img className='w-[4vh] mb-1 rounded-md' src="/webflix1.jpg" alt=""/>
            <h1 className="anim flex items-center justify-center font-semibold gap-2 text-xl text-white">
             <span  style={{backgroundImage: 'url(image.gif)',}}
