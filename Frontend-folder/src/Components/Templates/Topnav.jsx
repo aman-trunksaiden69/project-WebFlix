@@ -62,7 +62,7 @@ const Topnav = () => {
             onChange={(e) => setquery(e.target.value)}
             value={query}
             className={`${
-              isExpanded ? 'w-[100%] block' : 'w-0 hidden'
+              isExpanded ? 'w-[80%] block' : 'w-0 hidden'
             } placeholder:text-zinc-100 hover:border-[1px] hover:border-zinc-100 text-zinc-100 font-["gilroy"] ml-1 px-2 placeholder:text-center py-1 text-md outline-none rounded-3xl bg-transparent transition-all duration-300`}
             type="text"
             placeholder="WebFlix Search"
