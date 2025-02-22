@@ -77,7 +77,7 @@ const Moviedetails = () => {
             to={`${pathname}/trailer`}
           >
             {" "}
-            <i className="text-xl mr-3 ri-play-fill"></i> Play Trailer
+            <i className="text-xl mr-2 ri-play-fill"></i> Play Trailer
         </Link>
        
         <div className="content">

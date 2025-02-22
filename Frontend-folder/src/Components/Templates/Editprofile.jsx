@@ -81,7 +81,7 @@ const Editprofile = () => {
               onSubmit={submitHandler} 
               className='edit relative flex items-center gap-14 justify-center flex-col h-[55%] w-[100%] p-2'>
                 <label htmlFor='photoinput'>
-                <i className="absolute top-[15%] left-[56%] px-2 py-1 font-semibold bg-blue-200 rounded-full text-lg cursor-pointer hover:border-[2px] hover:border-black hover:scale-105 duration-100 ri-pencil-line"></i>
+                <i className="absolute top-[14%] left-[56%] px-2 py-1 font-normal bg-blue-300 rounded-full text-md cursor-pointer hover:border-[2px] hover:border-black hover:scale-105 duration-100 ri-pencil-line"></i>
                 </label>
 
 
@@ -106,13 +106,13 @@ const Editprofile = () => {
 
 
                 <div>
-                <h1 className='text-xl text-white font-medium mb-1'>Enter New Username</h1>
+                <h1 className='text-md text-white font-medium mb-1'>Enter New Username</h1>
                 <input 
                  type="text"
                  placeholder='Your username'
                  value={username}
                  onChange={(e) => setUsername(e.target.value)}
-                 className='focus:outline-none hover:border-pink-700 px-10 py-3 mb-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-xl'
+                 className='focus:outline-none hover:border-pink-700 px-6 py-2 mb-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
                  />
                 <button type='submit' className="w-[265px] flex justify-center py-2 rounded-md shadow-sm text-xl font-semibold text-white bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] hover:text-black hover:scale-105 duration-200">
                  Update Profile
