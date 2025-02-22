@@ -25,7 +25,7 @@ const Start = () => {
     <div className='w-full p-3 border-t-[1px] rounded-t-xl border-pink-400 flex items-center justify-center'>
 
       <Link to="/Login" 
-        className='px-20 py-3 text-xl flex gap-2 bg-blue-600 rounded-md hover:border-[1px] hover:text-black hover:border-white hover:bg-blue-300'>
+        className='px-20 py-3 text-xl flex gap-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] rounded-md hover:text-black hover:scale-105 duration-200'>
         Let's Started
         <i className="ri-arrow-right-line"></i>
       </Link>

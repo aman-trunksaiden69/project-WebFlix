@@ -165,7 +165,7 @@ const Aboutpage = () => {
                 <h1 className="text-lg font-bold text-pink-400">
                  Our Culture
                 </h1>
-                <p className='text-sm'>
+                <p className='text-sm text-[#ffffffe0]'>
                 At Webflix, we have an amazing and unique employee culture. Find out first-hand 
                 what it’s really like to work here, and to learn more about our company values.
                 <span className="text-blue-300">
@@ -182,7 +182,7 @@ const Aboutpage = () => {
                 <h1 className="text-lg font-bold text-pink-400">
                  Investor Relation
                 </h1>
-                <p className='text-sm'>
+                <p className='text-sm text-[#ffffffe0]'>
                 Want to invest with us? Get more information about our governance,
                 our latest earnings, and our long-term view on what’s ahead.
                 <span className="text-blue-300">
@@ -199,7 +199,7 @@ const Aboutpage = () => {
                 <h1 className="text-lg font-bold text-pink-400">
                  Careers
                 </h1>
-                <p className='text-sm'>
+                <p className='text-sm text-[#ffffffe0]'>
                 Want to come work with us? Get more information about our teams,
                 locations, culture and to hear more from our employees.
                 <span className="text-blue-300">
