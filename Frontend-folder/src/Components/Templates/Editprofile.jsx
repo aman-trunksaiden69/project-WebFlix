@@ -114,7 +114,7 @@ const Editprofile = () => {
                  onChange={(e) => setUsername(e.target.value)}
                  className='focus:outline-none hover:border-pink-700 px-5 py-2 mb-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
                  />
-                <button type='submit' className="w-[267px] flex justify-center py-2 rounded-md shadow-sm text-md font-semibold text-white bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] hover:text-black hover:scale-105 duration-200">
+                <button type='submit' className="w-[270px] flex justify-center py-2 rounded-md shadow-sm text-md font-semibold text-white bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] hover:text-black hover:scale-105 duration-200">
                  Update Profile
                 </button>
                 </div>
