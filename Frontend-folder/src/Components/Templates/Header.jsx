@@ -40,7 +40,7 @@ const Header = ({data}) => {
         </div>
 
         <Link to={`/${data.media_type}/details/${data.id}/trailer`} 
-         className='bg-blue-400 p-2 text-sm duration-150 rounded-lg font-bold hover:text-white hover:scale-110 mt-8'>
+         className='bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] text-white p-2 text-sm duration-200 rounded-lg font-bold hover:text-black hover:scale-105 mt-8'>
         {" "}
         Watch Trailer
         </Link>

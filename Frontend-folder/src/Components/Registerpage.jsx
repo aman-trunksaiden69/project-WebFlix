@@ -105,7 +105,7 @@ const Registerpage = () => {
                   />
 
                   <div className='w-[100%]'>
-                  <button className="w-full flex justify-center py-2 rounded-md shadow-sm text-md font-semibold text-white bg-blue-600 hover:bg-blue-300 border-[1px] border-black hover:border-white hover:text-black">
+                  <button className="w-full flex justify-center py-2 rounded-md shadow-sm text-md font-semibold text-white bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] hover:text-black hover:scale-105 duration-200">
                    Sign up
                   </button>
                   </div>

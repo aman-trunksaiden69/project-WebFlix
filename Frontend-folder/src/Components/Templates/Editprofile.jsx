@@ -58,7 +58,7 @@ const Editprofile = () => {
           Navigate('/Profile')
 
         }catch(error){
-         console.log("Error details:", error);  // Log the complete error object for debugging
+         console.log("Error details:", error);
          setMessage(error.response?.data?.message || "Something went wrong!");
         }
 
@@ -114,7 +114,7 @@ const Editprofile = () => {
                  onChange={(e) => setUsername(e.target.value)}
                  className='focus:outline-none hover:border-pink-700 px-10 py-3 mb-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-xl'
                  />
-                <button type='submit' className="w-[265px] flex justify-center py-2 rounded-md shadow-sm text-xl font-semibold text-white bg-pink-600 border-[1px] border-black hover:border-white hover:bg-pink-700 hover:text-black">
+                <button type='submit' className="w-[265px] flex justify-center py-2 rounded-md shadow-sm text-xl font-semibold text-white bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] hover:text-black hover:scale-105 duration-200">
                  Update Profile
                 </button>
                 </div>
