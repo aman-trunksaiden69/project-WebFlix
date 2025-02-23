@@ -48,9 +48,11 @@ const Registerpage = () => {
   setEmail("");
   setAge("");
   setPassword("");
-  }
+  };
 
-
+  const GoogleHandler = () => {
+    window.open(`${import.meta.env.VITE_BASE_URL}/auth/google`, "_self")
+  };
 
   return (
     <>
@@ -111,7 +113,7 @@ const Registerpage = () => {
                   </div>
                   <h1 className='text-zinc-400 text-md font-normal'>OR</h1>
                   <div className='w-[99%]'>
-                  <button className="w-full flex justify-center py-2 border border-transparent rounded-md shadow-sm text-xl font-semibold text-black bg-white focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500">
+                  <button onClick={GoogleHandler} className="w-full flex justify-center py-2 border border-transparent rounded-md shadow-sm text-xl font-semibold text-black bg-white focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500">
                   <FcGoogle/>
                   </button>
                   </div>
