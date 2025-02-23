@@ -8,8 +8,9 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const connectDB = require('./DB/db');
 const userRoutes = require('./Routes/userRoutes');
-const authRoutes = ('./Routes/authRoutes');
+const authRoutes = require('./Routes/authRoutes');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const passport = require('passport');
 
 
@@ -36,8 +37,15 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.DB_CONNECT, // MongoDB URI
+    ttl: 2 * 24 * 60 * 60, // 2 days expiry
+  }),
   cookie: {
     maxAge:2 * 24 * 60 * 60 * 1000, // 2 days
+    secure: true,
+    httpOnly: true,
+    sameSite: 'none',
   },
 }));
 
