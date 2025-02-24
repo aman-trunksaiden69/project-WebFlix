@@ -4,6 +4,10 @@ const userModel = require('./Models/userModel');
 require('dotenv').config();
 
 
+if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
+  console.error("Missing Google OAuth Credentials in .env file!");
+};
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -41,3 +45,6 @@ passport.deserializeUser(async (id, done) => {
     const user = await userModel.findById(id);
     done(null, user);
 });
+
+
+module.exports = passport;
