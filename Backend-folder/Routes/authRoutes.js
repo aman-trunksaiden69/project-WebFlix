@@ -10,7 +10,13 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    res.redirect('https://webflix-app-pr72.onrender.com');
+    try {
+      // Redirect user to frontend after successful authentication
+      res.redirect('https://webflix-app-pr72.onrender.com');
+    } catch (error) {
+      console.error("Google Callback Error:", error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
   }
 );
 
