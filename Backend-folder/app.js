@@ -1,5 +1,5 @@
-const dotenv = require('dotenv');
 dotenv.config();
+const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
