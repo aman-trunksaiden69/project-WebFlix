@@ -1,7 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config();
-const passport = require('passport');
 const express = require('express');
+const passport = require('passport');
+require('./passport');
 const cors = require('cors');
 const path = require('path');
 const morgan = require('morgan');
