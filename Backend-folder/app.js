@@ -35,7 +35,7 @@ app.use(cookieParser());    //cookie parser
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: "secretcode",
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
