@@ -1,5 +1,5 @@
-dotenv.config();
 const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -12,6 +12,7 @@ const authRoutes = require('./Routes/authRoutes');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const passport = require('passport');
+
 
 
 
