@@ -11,10 +11,16 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/auth/google/callback',
+    callbackURL: 'https://webflix-server-rcqi.onrender.com/auth/google/callback',
+    passReqToCallback: true
     },
 
     async ( profile, done ) => {
+
+    console.log("Google OAuth Callback Triggered!");
+    console.log("Redirect URI Used:", 'https://webflix-server-rcqi.onrender.com/auth/google/callback');
+    console.log("Profile Data:", profile);
+
 
         try {
             let user = await userModel.findOne({ googleId: profile.id });
