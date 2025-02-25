@@ -15,7 +15,7 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
     },
 
-    async ( profile, done ) => {
+    async ( accessToken, refreshToken, profile, done ) => {
 
     console.log("Google OAuth Callback Triggered!");
     console.log("Redirect URI Used:", 'https://webflix-server-rcqi.onrender.com/auth/google/callback');
@@ -29,8 +29,8 @@ passport.use(new GoogleStrategy({
               user = new userModel({
                 googleId: profile.id,
                 name: profile.displayName,
-                email: profile.emails[0].value,
-                photo: profile.photos[0].value
+                email: profile.emails[0]?.value || "",
+                photo: profile.photos[0]?.value || "",
               });
 
               await user.save();
