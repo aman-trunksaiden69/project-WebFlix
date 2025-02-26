@@ -12,7 +12,7 @@ router.get('/google/callback',
   (req, res) => {
     try {
       // Redirect user to frontend after successful authentication
-      res.redirect('https://webflix-app-pr72.onrender.com');
+      res.redirect('https://webflix-app-pr72.onrender.com/Home');
     } catch (error) {
       console.error("Google Callback Error:", error);
       res.status(500).json({ message: "Internal Server Error" });
