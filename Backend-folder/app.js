@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const passport = require('passport');
-require('./passport');
+require('./Utils/passport');
 const cors = require('cors');
 const path = require('path');
 const morgan = require('morgan');
