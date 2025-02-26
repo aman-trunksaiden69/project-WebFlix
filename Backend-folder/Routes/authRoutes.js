@@ -4,15 +4,20 @@ const passport = require('passport');
 const router = express.Router();
 
 // Google Auth Route
-router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/google', (req, res, next) => {
+  req.session.redirectTo = req.query.redirect || '/Home'; // Store intended route
+  next();
+}, passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 // Callback Route 
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
     try {
-      // Redirect user to frontend after successful authentication
-      res.redirect('https://webflix-app-pr72.onrender.com/Home');
+      const redirectTo = req.session.redirectTo || 'https://webflix-app-pr72.onrender.com/Home';
+      delete req.session.redirectTo; // Clear after use
+      console.log("User Authenticated! Redirecting to:", redirectTo);
+      res.redirect(redirectTo);
     } catch (error) {
       console.error("Google Callback Error:", error);
       res.status(500).json({ message: "Internal Server Error" });
@@ -20,9 +25,13 @@ router.get('/google/callback',
   }
 );
 
-// Get Current User
+// Get Current User Route (Protected)
 router.get('/user', (req, res) => {
-  res.send(req.user);
+  if (req.isAuthenticated()) {
+    res.json({ user: req.user });
+  } else {
+    res.json({ user: null });
+  }
 });
 
 module.exports = router;
