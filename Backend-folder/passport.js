@@ -5,7 +5,7 @@ require('dotenv').config();
 
 if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
   console.error("Missing Google OAuth Credentials in .env file!");
-  process.exit(1); // Process exit if credentials are missing
+  process.exit(1); // Stop the server if credentials are missing
 }
 
 passport.use(
@@ -32,12 +32,18 @@ passport.use(
           user = new userModel({
             googleId: profile.id,
             name: profile.displayName || "No Name",
+            username: profile.displayName ? profile.displayName.replace(/\s/g, "").toLowerCase() : `user_${Date.now()}`, // Generate default username
             email: profile.emails?.[0]?.value || "No Email",
             photo: profile.photos?.[0]?.value || "No Photo",
+            age: 18, // Default age
           });
 
           await user.save();
+          console.log("New user created:", user);
+        } else {
+          console.log("Existing user found:", user);
         }
+
         return done(null, user);
       } catch (err) {
         console.error("Error in Google OAuth Strategy:", err);
