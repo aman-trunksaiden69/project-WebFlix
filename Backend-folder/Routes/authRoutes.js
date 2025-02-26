@@ -7,11 +7,11 @@ const router = express.Router();
 router.get('/google', (req, res, next) => {
   req.session.redirectTo = req.query.redirect || '/Home'; // Store intended route
   next();
-}, passport.authenticate('google', { scope: ['profile', 'email'] }));
+}, passport.authenticate('google', { scope: ['profile', 'email'], prompt: 'select_account', }));
 
 // Callback Route 
 router.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
+  passport.authenticate('google', { failureRedirect: '/Login' }),
   (req, res) => {
     try {
       const redirectTo = req.session.redirectTo || 'https://webflix-app-pr72.onrender.com/Home';
