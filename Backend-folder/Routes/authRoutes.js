@@ -17,7 +17,7 @@ router.get('/google/callback',
       const redirectTo = req.session.redirectTo || 'https://webflix-app-pr72.onrender.com/Home';
       delete req.session.redirectTo; // Clear after use
       console.log("User Authenticated! Redirecting to:", redirectTo);
-      res.redirect(redirectTo);
+      res.redirect('/Home');
     } catch (error) {
       console.error("Google Callback Error:", error);
       res.status(500).json({ message: "Internal Server Error" });
