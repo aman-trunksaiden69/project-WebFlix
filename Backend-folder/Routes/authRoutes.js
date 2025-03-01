@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Google Auth Route
 router.get('/google', (req, res, next) => {
-  req.session.redirectTo = req.query.redirect || '/Home'; // Store intended route
+  req.session.redirectTo = req.query.redirect || 'https://webflix-app-pr72.onrender.com/Home'; // Store intended route
   next();
 }, passport.authenticate('google', { scope: ['profile', 'email'], prompt: 'select_account', }));
 
@@ -14,7 +14,7 @@ router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/Login' }),
   (req, res) => {
     try {
-      const redirectTo = req.session.redirectTo || '/Home';
+      const redirectTo = req.session.redirectTo || 'https://webflix-app-pr72.onrender.com/Home';
       delete req.session.redirectTo; // Clear after use
       console.log("User Authenticated! Redirecting to:", redirectTo);
       res.redirect(redirectTo);
