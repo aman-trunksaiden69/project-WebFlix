@@ -22,10 +22,6 @@ passport.use(
           throw new Error("Google OAuth Profile Data is undefined!");
         }
 
-        console.log("Google OAuth Callback Triggered!");
-        console.log("Redirect URI Used:", 'https://webflix-server-rcqi.onrender.com/auth/google/callback');
-        console.log("Profile Data:", profile);
-
         let user = await userModel.findOne({ googleId: profile.id });
 
         if (!user) {

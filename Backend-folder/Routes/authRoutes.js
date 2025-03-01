@@ -11,10 +11,10 @@ router.get('/google', (req, res, next) => {
 
 // Callback Route 
 router.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/Home' }),
+  passport.authenticate('google', { failureRedirect: '/Login' }),
   (req, res) => {
     try {
-      const redirectTo = req.session.redirectTo || 'https://webflix-app-pr72.onrender.com/Home';
+      const redirectTo = req.session.redirectTo || '/Home';
       delete req.session.redirectTo; // Clear after use
       console.log("User Authenticated! Redirecting to:", redirectTo);
       res.redirect(redirectTo);
