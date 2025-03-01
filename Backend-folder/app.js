@@ -37,7 +37,7 @@ app.use(cookieParser());    //cookie parser
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(session({
-  secret: "secretcode",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
@@ -57,7 +57,7 @@ app.use(passport.session());
 
 
 app.get('/', (req, res) => {
-  res.send('CORS is running!');
+  res.send('API is running!');
 });
 
 
