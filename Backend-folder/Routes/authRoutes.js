@@ -7,4 +7,4 @@ authRoute.post('/login', authController.login );
 authRoute.get('/get-user', authController.getUser );
 
 
-export default authRoute;
+module.exports = authRoute;

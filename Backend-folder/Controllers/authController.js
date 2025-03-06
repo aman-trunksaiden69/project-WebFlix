@@ -2,7 +2,7 @@ const userModel = require('../Models/userModel')
 const jwt = require('jsonwebtoken')
 
 
-export const login = async (req, res) => {
+module.exports.login = async (req, res) => {
   try{
    
     const { username, email, photo } = req.body;
@@ -40,7 +40,7 @@ export const login = async (req, res) => {
 
 };
 
-export const getUser = async (req, res) => {
+module.exports.getUser = async (req, res) => {
    try {
     const token = req.cookies.access_token
 
