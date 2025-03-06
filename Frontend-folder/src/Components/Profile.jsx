@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { userDataContext } from '../Context/UserContext';
+import axios from 'axios';
 
 
 const Profile = () => {
@@ -14,31 +15,34 @@ const Profile = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const userresponse = await fetch('http://localhost:3000/api/auth/get-user', {
-          method: 'GET',
-          credentials: 'include',
+        
+        const userresponse = await axios.get('https://webflix-app-pr72.onrender.com/api/auth/get-user', {
+          withCredentials: true,  // Include cookies for authentication
         });
-
-        const data = await userresponse.json();
-
-        if (!userresponse.ok) {
-          alert(data.message)
+  
+        console.log("User Response:", userresponse.data);  
+        const data = userresponse.data;  // Axios parses JSON
+  
+        if (userresponse.status !== 200) {
+          alert(data.message || "Failed to fetch user.");
           return;
         }
-
+  
         if (data.success) {
           setUser(data.user);
         } else {
           alert(data.message);
         }
-
+  
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching user:", error);
+        alert("An error occurred while fetching user data.");
       }
-    }
-
+    };
+  
     getUser();
-}, [])
+  }, []);
+  
 
 
 if(!userData || !userData.success) return <div>Loading...</div>
