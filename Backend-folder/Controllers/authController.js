@@ -7,9 +7,7 @@ module.exports.login = async (req, res) => {
    
     const { username, email, photo } = req.body;
 
-    let user;
-
-    user = await userModel.findOne({ email });
+    let user = await userModel.findOne({ email });
 
     if (!user) {
       
@@ -25,16 +23,18 @@ module.exports.login = async (req, res) => {
     //convert mongoose object into plain data 
     user = user.toObject({ getters: true });
 
-    const token = jwt.sign(user, process.env.JWT_SECRET);
+    const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '24d' });
     res.cookie('access_token', token, {
         httpOnly: true,
+        secure: true,    // cookie is sent over HTTPS
+        sameSite: 'none' // For cross-site requests
     });
 
-    res.status(200).json({ success: true, user: user, message: 'User Login successfully.' });
+    res.status(200).json({ success: true, user: user, token, message: 'User Login successfully.' });
     
 
   }catch(error){
-    console.log("Login error:", error);
+    console.log("Google auth Login error:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 

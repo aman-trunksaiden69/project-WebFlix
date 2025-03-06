@@ -71,10 +71,13 @@ const Login = () => {
 
       console.log("Backend Response:", apiresponse.data);
 
-      if (apiresponse.status !== 200) {
-        alert(apiresponse.data.message || "Login failed");
+      if (apiresponse.status === 200) {
+        const { token, user } = apiresponse.data;
+        localStorage.setItem('token', token);   // Save token to local storage
+        setUser(user);  // Save user info in context
+        Navigate('/Profile');   // Redirect to Profile page
       } else {
-        Navigate('/Profile');
+        alert(apiresponse.data.message || "Login failed");
       }
 
       
