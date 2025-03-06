@@ -60,7 +60,7 @@ const Profile = () => {
 
       <div className='bg-black text-white'>
         <h1>User Data</h1>
-        <h3>Name: {userData?.username || 'N/A'}</h3>  {/* ✅ Corrected key */}
+        <h3>Name: {userData?.username || 'N/A'}</h3>
         <h3>Email: {userData?.email || 'N/A'}</h3>
         <h3>Phone Number: {userData?.phoneNumber || 'N/A'}</h3>
         <img src={userData?.photo || '/default-photo-url.jpg'} alt='User' />

@@ -64,7 +64,12 @@ module.exports.loginUser = async (req, res, next) => {
     }
 
     const token = await user.generateAuthToken();
-    res.cookie('token', token);
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'none',  // For cross-site requests in production
+      maxAge: 24 * 60 * 60 * 1000  // 1 day expiry
+    });
 
     res.status(200).json({ token, user });
   } catch (error) {
@@ -76,7 +81,10 @@ module.exports.loginUser = async (req, res, next) => {
 // Profile route logic
 module.exports.getProfile = async (req, res, next) => {
   try {
-    res.status(200).json(req.user);
+    if (!req.user) {
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+    res.status(200).json({ success: true, user: req.user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Something went wrong while fetching profile' });
@@ -117,7 +125,7 @@ module.exports.editProfile = async (req, res, next) => {
 module.exports.logoutUser = async (req, res, next) => {
   try {
     res.clearCookie('token');
-    const token = req.cookies.token || req.headers.authorization.split(' ')[1];
+    const token = req.cookies.token || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
 
     // Blacklist token
     await blackListTokenModel.create({ token });
