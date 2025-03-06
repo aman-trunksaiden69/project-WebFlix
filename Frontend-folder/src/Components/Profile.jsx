@@ -22,6 +22,7 @@ const Profile = () => {
 
         console.log("User Response:", userresponse.data);
         const data = userresponse.data;  // Axios parses JSON
+        console.log(data)
 
         if (userresponse.status !== 200 || !data.success) {
           alert(data.message || "Failed to fetch user.");
