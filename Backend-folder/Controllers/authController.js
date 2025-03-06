@@ -1,5 +1,5 @@
-import userModel from "../Models/userModel.js";
-import jwt from "jsonwebtoken";
+const userModel = require('../Models/userModel')
+const jwt = require('jsonwebtoken')
 
 
 export const login = async (req, res) => {

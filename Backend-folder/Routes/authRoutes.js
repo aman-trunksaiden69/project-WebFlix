@@ -1,10 +1,10 @@
-import express from 'express';
-import { getUser, login } from '../Controllers/authController.js';
+const express = require('express');
+const authController = require('../Controllers/authController')
 
 const authRoute = express.Router();
 
-authRoute.post('/login', login );
-authRoute.get('/get-user', getUser );
+authRoute.post('/login', authController.login );
+authRoute.get('/get-user', authController.getUser );
 
 
 export default authRoute;
