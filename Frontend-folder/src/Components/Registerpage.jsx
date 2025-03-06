@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 import { userDataContext } from '../Context/UserContext';
 import { auth, provider } from '../Utils/firebase';
+import { signInWithPopup } from 'firebase/auth';
 
 
 const Registerpage = () => {
@@ -54,14 +55,40 @@ const Registerpage = () => {
   };
 
   const GoogleHandler = async () => {
-    const response = await signInWithPopup(auth, provider)  
-    console.log(response);
-    const user = response.user;  
-    const userData = {
-      username: user.displayName,
-      email: user.email,
-      photo: user.photoURL
+    
+    try {
+
+      const response = await signInWithPopup(auth, provider)  
+      console.log(response);
+      const user = response.user;  
+      const userData = {
+        username: user.displayName,
+        email: user.email,
+        photo: user.photoURL
+      }
+
+      const apiresponse = await axios.post('http://localhost:4000/api/auth/login', {
+       credentials: 'include',
+       headers: {
+        'Content-Type': 'application/json',
+       },
+       body: JSON.stringify(userData),
+      });
+      
+      const responsedata = await apiresponse.json();
+
+      if (!apiresponse.ok) {
+        alert(responsedata.message);
+      }
+
+      Navigate('/Profile');
+
+      
+    } catch (error) {
+      console.log(error);
     }
+    
+
   };
 
   return (
