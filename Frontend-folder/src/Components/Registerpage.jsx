@@ -59,7 +59,7 @@ const Registerpage = () => {
     try {
 
       const response = await signInWithPopup(auth, provider)  
-      console.log(response);
+      console.log('Google-SignIn:', response);
       const user = response.user;  
       const userData = {
         username: user.displayName,
@@ -67,25 +67,26 @@ const Registerpage = () => {
         photo: user.photoURL
       }
 
-      const apiresponse = await axios.post('https://webflix-app-pr72.onrender.com/api/auth/login', {
-       credentials: 'include',
+      const apiresponse = await axios.post('https://webflix-app-pr72.onrender.com/api/auth/login', userData, {
+       withCredentials: true,
        headers: {
         'Content-Type': 'application/json',
        },
-       body: JSON.stringify(userData),
+       
       });
-      
-      const responsedata = await apiresponse.json();
 
-      if (!apiresponse.ok) {
-        alert(responsedata.message);
+      console.log("Backend Response:", apiresponse.data);
+
+      if (apiresponse.status !== 200) {
+        alert(apiresponse.data.message || "Login failed");
+      } else {
+        Navigate('/Profile');
       }
-
-      Navigate('/Profile');
 
       
     } catch (error) {
-      console.log(error);
+      console.error("Error during Google Sign-In:", error);
+      alert("Login failed. Please try again.");
     }
     
 
