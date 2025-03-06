@@ -30,17 +30,11 @@ const userSchema = new mongoose.Schema({
 
     password: {
         type: String,
-        required: function() {return !this.googleId},
+        required: true,
         select: false,
     },
 
-    googleId: { 
-        type: String, 
-        unique: true, 
-        sparse: true //Google users can be stored without conflict
-    },
-
-});
+}, { timestamps: true });
 
 //Authentication Methods-
 

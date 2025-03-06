@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { userDataContext } from '../Context/UserContext';
 
@@ -8,7 +8,40 @@ const Profile = () => {
   const Navigate = useNavigate();
   const { user } = useContext(userDataContext);
 
-  
+  const [userData, setUser] = useState(null);
+
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userresponse = await fetch('http://localhost:3000/api/auth/get-user', {
+          method: 'GET',
+          credentials: 'include',
+        });
+
+        const data = await userresponse.json();
+
+        if (!userresponse.ok) {
+          alert(data.message)
+          return;
+        }
+
+        if (data.success) {
+          setUser(data.user);
+        } else {
+          alert(data.message);
+        }
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getUser();
+}, [])
+
+
+if(!userData || !userData.success) return <div>Loading...</div>
 
   return (
     <div className='w-screen h-screen bg-black font-["gilroy"]'>
@@ -20,6 +53,14 @@ const Profile = () => {
            Profile
           </h1>
         </div>
+      </div>
+
+      <div className='bg-black text-white'>
+      <h1>User Data</h1>
+      <h3>Name: {userData.name}</h3>
+      <h3>Email: {userData.email}</h3>
+      <h3>Phone Number: {userData.phoneNumber}</h3>
+      <img src={userData.photo} alt="User" />
       </div>
 
       <div className='flex flex-col justify-between h-[90%] w-[100%] p-2 '>

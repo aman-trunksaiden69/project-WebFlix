@@ -3,11 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 import { userDataContext } from '../Context/UserContext';
+import { auth, provider } from '../Utils/firebase';
+
 
 const Registerpage = () => {
 
   document.title = `WebFlix | Signup`;
 
+  
 
    const { setUser } = useContext(userDataContext);
    const Navigate = useNavigate();
@@ -50,8 +53,15 @@ const Registerpage = () => {
   setPassword("");
   };
 
-  const GoogleHandler = () => {
-    window.open(`${import.meta.env.VITE_BASE_URL}/auth/google`, "_self")
+  const GoogleHandler = async () => {
+    const response = await signInWithPopup(auth, provider)  
+    console.log(response);
+    const user = response.user;  
+    const userData = {
+      username: user.displayName,
+      email: user.email,
+      photo: user.photoURL
+    }
   };
 
   return (
