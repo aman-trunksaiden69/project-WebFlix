@@ -4,51 +4,69 @@ import axios from "axios";
 export const userDataContext = createContext();
 
 const UserContext = ({ children }) => {
-
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    //Fetch User Data from Backend API
-  const fetchUserProfile = async () => {
+    const fetchUserProfile = async () => {
+      try {
+        let response;
 
-    if (!token) {
-      setErrorMessage("⚠ Token unavailable. Please login or signup.");
-      return;
-    }
+        if (token) {
+          //Normal Login Data
+          response = await axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          });
+        } else {
+          //Google Login Data
+          response = await axios.get(
+            'https://webflix-app-pr72.onrender.com/api/auth/get-user',
+            { withCredentials: true }
+          );
+        }
 
+        //got data, setUser
+        if (response && response.data) {
+          const data = response.data;
+          console.log("User Response:", data);
 
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+          if (data.success !== false) {
+            setUser({
+              username: data.username || data.decodedtoken?.username,
+              photo: data.photo || data.decodedtoken?.photo,
+            });
+            setErrorMessage('');
+          } else {
+            console.warn("Failed to fetch user:", data.message);
+            setErrorMessage(data.message || 'Failed to fetch user data.');
+          }
+        } else {
+          console.warn("No data received.");
+          setErrorMessage('No user data received.');
+        }
+      } catch (error) {
+        console.error("Error fetching user profile:", error.response?.data || error.message);
+        localStorage.removeItem('token');
+        setUser(null);
+        setErrorMessage("Failed to fetch user data. Please login again.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      setUser(response.data);
-      setErrorMessage('');
-
-    } catch (error) {
-      console.error("Token unavailable login or signup:", error);
-      localStorage.removeItem('token'); //Remove Invalid token
-      setUser(null);
-  };
-
-  }
-  fetchUserProfile();
-  }, [token])
-  
-
-
+    fetchUserProfile();
+  }, [token]);
 
   return (
-    <userDataContext.Provider value={{ user, setUser, errorMessage }}>
+    <userDataContext.Provider value={{ user, setUser, errorMessage, loading }}>
       {children}
     </userDataContext.Provider>
   );
-
-  };
+};
 
 export default UserContext;

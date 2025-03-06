@@ -5,43 +5,9 @@ import axios from 'axios';
 
 const Profile = () => {
   const Navigate = useNavigate();
-  const { user } = useContext(userDataContext);
+  const { user, loading } = useContext(userDataContext);
 
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);  
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const userresponse = await axios.get(
-          'https://webflix-app-pr72.onrender.com/api/auth/get-user',
-          {
-            withCredentials: true,  // Include cookies for authentication
-          }
-        );
-
-        console.log("User Response:", userresponse.data);
-        const data = userresponse.data;  // Axios parses JSON
-        console.log(data)
-
-        if (userresponse.status !== 200 || !data.success) {
-          alert(data.message || "Failed to fetch user.");
-          setLoading(false); 
-          return;
-        }
-
-        setUserData(data.decodedtoken); 
-        setLoading(false); 
-
-      } catch (error) {
-        console.error("Error fetching user:", error);
-        alert("An error occurred while fetching user data.");
-        setLoading(false); 
-      }
-    };
-
-    getUser();
-  }, []);
 
   if (loading) return <div>Loading...</div>;
 
