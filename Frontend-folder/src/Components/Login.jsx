@@ -62,7 +62,7 @@ const Login = () => {
         photo: user.photoURL
       }
 
-      const apiresponse = await axios.post('https://webflix-app-pr72.onrender.com/api/auth/login', userData, {
+      const apiresponse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/login`, userData, {
        withCredentials: true,
        headers: {
         'Content-Type': 'application/json',
