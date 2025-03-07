@@ -16,7 +16,10 @@ connectDB();    // Connect to MongoDB
 app.use(morgan('dev'));  // HTTP request logger middleware
 
 app.use(cors({
-  origin: ['https://webflix-app-pr72.onrender.com'],
+  origin: [
+    'https://webflix-app-pr72.onrender.com',
+    'http://localhost:5173'
+  ],
   credentials: true,
 }));  // Cross-Origin Resource Sharing
 app.use(express.json()); // Parse JSON bodies

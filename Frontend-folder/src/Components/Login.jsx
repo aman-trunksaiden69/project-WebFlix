@@ -83,7 +83,7 @@ const Login = () => {
 
       
     } catch (error) {
-      console.error("Error during Google Sign-In:", error);
+      console.error("Error during Google Sign-In:", error?.response?.data || error.message);
       alert("Login failed. Please try again.");
     }
     
