@@ -1,16 +1,25 @@
 const userModel = require('../Models/userModel')
 const jwt = require('jsonwebtoken')
+const { validationResult } = require('express-validator');
 
 
-module.exports.login = async (req, res) => {
-  try{
-   
+// Google Login
+module.exports.googleLogin = async (req, res, next) => {
+
+  try {
+    // Check validation errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ success: false, errors: errors.array() });
+    }
+
     const { username, email, photo } = req.body;
 
+    // Check if user already exists
     let user = await userModel.findOne({ email });
 
     if (!user) {
-      
+      // Create new user if not exists
       const newuser = new userModel({
         username,
         email,
@@ -20,27 +29,34 @@ module.exports.login = async (req, res) => {
       user = await newuser.save();
     }
 
-    //convert mongoose object into plain data 
+    // Convert mongoose object to plain data
     user = user.toObject({ getters: true });
 
+    // Generate token
     const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '24d' });
+
+    // Save token in cookies for server-side use
     res.cookie('access_token', token, {
-        httpOnly: true,
-        secure: true,    // cookie is sent over HTTPS
-        sameSite: 'none' // For cross-site requests
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'none'
     });
 
-    res.status(200).json({ success: true, user: user, token, message: 'User Login successfully.' });
-    
-
-  }catch(error){
+    // Send token in response for client-side (localStorage)
+    res.status(200).json({
+      success: true,
+      user,
+      token,
+      message: 'Google Login successful'
+    });
+  } catch (error) {
     console.log("Google auth Login error:", error);
     res.status(500).json({ success: false, error: error.message });
   }
-
 };
 
-module.exports.getUser = async (req, res) => {
+
+module.exports.getUser = async (req, res, next) => {
    try {
     const token = req.cookies.access_token
 

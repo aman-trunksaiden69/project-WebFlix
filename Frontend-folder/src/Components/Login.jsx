@@ -54,6 +54,7 @@ const Login = () => {
 
       const response = await signInWithPopup(auth, provider)  
       console.log('Google-SignIn:', response);
+      console.log('Google-Access_Token:', response.tokenResponse.oauthAccessToken);
       const user = response.user;  
       const userData = {
         username: user.displayName,
