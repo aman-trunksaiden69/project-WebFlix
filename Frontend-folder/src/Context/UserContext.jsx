@@ -31,8 +31,8 @@ const UserContext = ({ children }) => {
 
         //Successfully received user data
         if (response && response.data) {
+  
           const data = response.data;
-          console.log("User Response:", data);
 
           if (data.success !== false) {
             setUser({
