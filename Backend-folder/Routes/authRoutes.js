@@ -19,7 +19,7 @@ authRoute.post('/google-login',
 
 //get-user route-
 authRoute.get('/get-user',authMiddleware.authUser,
-  ratelimitMiddleware.apiLimiter,
+  ratelimitMiddleware.uploadLimiter,
   authController.getUser
 );
 

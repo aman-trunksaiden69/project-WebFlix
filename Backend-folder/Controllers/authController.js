@@ -6,7 +6,7 @@ const { validationResult } = require('express-validator');
 //Routes logic here-
 
 // Google Login
-const googleLogin = async (req, res, next) => {
+module.exports.googleLogin = async (req, res, next) => {
 
   try {
     // Check validation errors
@@ -63,7 +63,7 @@ const googleLogin = async (req, res, next) => {
 };
 
 // Get User
-const getUser = async (req, res, next) => {
+module.exports.getUser = async (req, res, next) => {
    try {
     const token = req.cookies.access_token
 
@@ -79,6 +79,3 @@ const getUser = async (req, res, next) => {
     res.status(500).json({ success: false, message: error.message, error });
    }
 };
-
-
-module.exports = { googleLogin, getUser };
