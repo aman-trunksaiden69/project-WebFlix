@@ -1,11 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { userDataContext } from '../Context/UserContext';
-import axios from 'axios';
+
 
 const Profile = () => {
   const Navigate = useNavigate();
   const { user, loading } = useContext(userDataContext);
+  console.log(user);
 
 
 
