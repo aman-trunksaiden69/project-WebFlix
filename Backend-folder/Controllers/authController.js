@@ -40,7 +40,7 @@ module.exports.googleLogin = async (req, res, next) => {
     delete user.age;    
 
     // Generate token
-    const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '24d' });
+    const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '24d' });
 
     // Save token in cookies for server-side use
     res.cookie('access_token', token, {
@@ -71,7 +71,7 @@ module.exports.getUser = async (req, res, next) => {
       return res.status(403).json({ success: false, message: 'Token not found.' });
     } 
 
-    const decodedtoken = jwt.verify(token, process.env.JWT_SECRET);
+    const decodedtoken = jwt.verify(token, process.env.SECRET_KEY);
 
     res.status(200).json({ success: true, decodedtoken });
 

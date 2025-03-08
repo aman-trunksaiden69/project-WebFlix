@@ -4,6 +4,7 @@ const { validationResult } = require('express-validator');
 const blackListTokenModel = require('../Models/blacklisttokenModel');
 
 
+//All Route here-
 
 // Register route logic
 module.exports.registerUser = async (req, res, next) => {
