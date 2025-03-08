@@ -39,6 +39,7 @@ const Login = () => {
 
       if (response.status === 200) {
         const data = response.data;
+        console.log("Login Response:", data);
         setUser(data?.user || null);
         setToken(data.token)
         Navigate('/Home');
