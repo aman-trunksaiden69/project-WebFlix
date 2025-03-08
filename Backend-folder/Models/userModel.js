@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+
 //User Schema Model-
 const userSchema = new mongoose.Schema({
 
@@ -20,7 +21,10 @@ const userSchema = new mongoose.Schema({
 
     age: {
         type: Number,
-        required: true,
+        required: function (){
+            return !this.isGoogleUser;
+        },
+        default: null,
     },
 
     photo: {
@@ -30,11 +34,20 @@ const userSchema = new mongoose.Schema({
 
     password: {
         type: String,
-        required: true,
+        required: function (){
+            return !this.isGoogleUser;
+        },
         select: false,
+        default: null,
     },
+    isGoogleUser: {
+        type: Boolean,
+        default: false  // Default me false, Google se aaye toh true karenge
+    }
 
 }, { timestamps: true });
+
+
 
 //Authentication Methods-
 

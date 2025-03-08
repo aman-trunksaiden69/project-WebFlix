@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator');
 
 
+//Routes logic here-
+
 // Google Login
 module.exports.googleLogin = async (req, res, next) => {
 
@@ -23,7 +25,10 @@ module.exports.googleLogin = async (req, res, next) => {
       const newuser = new userModel({
         username,
         email,
-        photo
+        photo,
+        isGoogleUser: true,
+        password: null,
+        age: null   
       });
 
       user = await newuser.save();
@@ -31,6 +36,8 @@ module.exports.googleLogin = async (req, res, next) => {
 
     // Convert mongoose object to plain data
     user = user.toObject({ getters: true });
+    delete user.password;
+    delete user.age;    
 
     // Generate token
     const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '24d' });
@@ -55,7 +62,7 @@ module.exports.googleLogin = async (req, res, next) => {
   }
 };
 
-
+// Get User
 module.exports.getUser = async (req, res, next) => {
    try {
     const token = req.cookies.access_token

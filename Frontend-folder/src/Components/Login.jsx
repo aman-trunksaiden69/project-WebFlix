@@ -8,9 +8,10 @@ import { signInWithPopup } from 'firebase/auth';
 
 
 const Login = () => {
+
   document.title = `WebFlix | Login`;
 
-  const { setUser } = useContext(userDataContext);
+  const { setUser, setToken } = useContext(userDataContext);
   const Navigate = useNavigate();
 
   const [Email, setEmail] = useState("");
@@ -34,12 +35,16 @@ const Login = () => {
 
       if (response.status === 200) {
         const data = response.data;
-        setUser(data.user);
-        localStorage.setItem('token', data.token);
+        setUser(data?.user || null);
+        setToken(data.token)
         Navigate('/Home');
+      }else{
+        setToken('');
+        setError(response.data?.message || "Login failed");
       }
 
     } catch (error) {
+      setToken('');
       console.error("Login failed:", error.response || error.message);
       setError("Login failed. Please check your credentials.");
     }
@@ -55,14 +60,17 @@ const Login = () => {
       const response = await signInWithPopup(auth, provider)  
       console.log('Google-SignIn:', response);
       console.log('Google-Access_Token:', response._tokenResponse.oauthAccessToken);
+
+
       const user = response.user;  
       const userData = {
         username: user.displayName,
         email: user.email,
-        photo: user.photoURL
+        photo: user.photoURL,
+        isGoogleUser: true
       }
 
-      const apiresponse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/login`, userData, {
+      const apiresponse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/google-login`, userData, {
        withCredentials: true,
        headers: {
         'Content-Type': 'application/json',
@@ -74,15 +82,17 @@ const Login = () => {
 
       if (apiresponse.status === 200) {
         const { token, user } = apiresponse.data;
-        localStorage.setItem('token', token);   // Save token to local storage
-        setUser(user);  // Save user info in context
+        setToken(token)   //Save token to local storage
+        setUser(user);  //Save user info in context
         Navigate('/Profile');   // Redirect to Profile page
       } else {
+        setToken('');
         alert(apiresponse.data.message || "Login failed");
       }
 
       
     } catch (error) {
+      setToken('');
       console.error("Error during Google Sign-In:", error?.response?.data || error.message);
       alert("Login failed. Please try again.");
     }

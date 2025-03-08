@@ -13,24 +13,23 @@ const UserContext = ({ children }) => {
     const fetchUserProfile = async () => {
       try {
         let response;
-
-        if (token) {
-          //Normal Login Data
+        
+        if (token) {  
+          //Normal Login
           response = await axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
             withCredentials: true,
           });
-        } else {
-          //Google Login Data
-          response = await axios.get(
-            `${import.meta.env.VITE_BASE_URL}/api/auth/get-user`,
-            { withCredentials: true }
-          );
+        } else {  
+          //Google Login
+          response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/auth/get-user`, {
+            withCredentials: true
+          });
         }
 
-        //got data, setUser
+        //Successfully received user data
         if (response && response.data) {
           const data = response.data;
           console.log("User Response:", data);
@@ -51,7 +50,7 @@ const UserContext = ({ children }) => {
         }
       } catch (error) {
         console.error("Error fetching user profile:", error.response?.data || error.message);
-        localStorage.removeItem('token');
+        localStorage.removeItem('token');  //Token hatao agar error aaye
         setUser(null);
         setErrorMessage("Failed to fetch user data. Please login again.");
       } finally {
@@ -59,11 +58,16 @@ const UserContext = ({ children }) => {
       }
     };
 
-    fetchUserProfile();
+    if (token || document.cookie.includes('token')) {  //Sirf tabhi call karo jab token ya cookie ho
+      fetchUserProfile();
+    } else {
+      setLoading(false);
+    }
+
   }, [token]);
 
   return (
-    <userDataContext.Provider value={{ user, setUser, errorMessage, loading }}>
+    <userDataContext.Provider value={{ user, setUser, errorMessage, loading, setToken }}>
       {children}
     </userDataContext.Provider>
   );
