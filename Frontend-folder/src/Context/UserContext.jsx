@@ -67,7 +67,7 @@ const UserContext = ({ children }) => {
   }, [token]);
 
   return (
-    <userDataContext.Provider value={{ user, setUser, errorMessage, loading, setToken }}>
+    <userDataContext.Provider value={{ user, setUser, errorMessage, loading, token, setToken }}>
       {children}
     </userDataContext.Provider>
   );

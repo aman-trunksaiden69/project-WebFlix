@@ -11,9 +11,9 @@ const Login = () => {
 
   document.title = `WebFlix | Login`;
 
-  const { setUser, setToken } = useContext(userDataContext);
-  console.log('userData:', setUser);
-  console.log('token:', setToken);
+  const { user, setUser, token, setToken } = useContext(userDataContext);
+  console.log('userData:', user);
+  console.log('token:', token);
   
 
   const Navigate = useNavigate();
