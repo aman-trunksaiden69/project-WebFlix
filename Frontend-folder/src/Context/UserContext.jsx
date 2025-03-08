@@ -25,7 +25,7 @@ const UserContext = ({ children }) => {
         } else {
           //Google Login Data
           response = await axios.get(
-            'https://webflix-app-pr72.onrender.com/api/auth/get-user',
+            `${import.meta.env.VITE_BASE_URL}/api/auth/get-user`,
             { withCredentials: true }
           );
         }
