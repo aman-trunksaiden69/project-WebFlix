@@ -32,9 +32,9 @@ const UserContext = ({ children }) => {
         //Successfully received user data
         if (response && response.data) {
           const data = response.data;
-          console.log("API Response Data:", response.data);
-          console.log("User:", response.data.user);
-          console.log("Decoded Token:", response.data.decodedtoken);
+          console.log("usercontext API Response Data:", response.data);
+          console.log("usercontext Userdata:", response.data.user);
+          console.log("usercontext Decoded Token:", response.data.decodedtoken);
 
 
           if (data.success !== false) {
@@ -44,18 +44,18 @@ const UserContext = ({ children }) => {
             });            
             setErrorMessage('');
           } else {
-            console.warn("Failed to fetch user:", data.message);
-            setErrorMessage(data.message || 'Failed to fetch user data.');
+            console.warn("usercontext Failed to fetch user:", data.message);
+            setErrorMessage(data.message || 'usercontext Failed to fetch user data.');
           }
         } else {
-          console.warn("No data received.");
-          setErrorMessage('No user data received.');
+          console.warn("usercontext No data received.");
+          setErrorMessage('usercontext No user data received.');
         }
       } catch (error) {
-        console.error("Error fetching user profile:", error.response?.data || error.message);
+        console.error("usercontext Error fetching user profile:", error.response?.data || error.message);
         localStorage.removeItem('token');  //Token hatao agar error aaye
         setUser(null);
-        setErrorMessage("Failed to fetch user data. Please login again.");
+        setErrorMessage("usercontext Failed to fetch user data. Please login again.");
       } finally {
         setLoading(false);
       }

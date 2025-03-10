@@ -11,8 +11,9 @@ const Login = () => {
 
   document.title = `WebFlix | Login`;
 
-  const { user, setUser } = useContext(userDataContext);
-  console.log('userData:', user);
+  const { user, setUser, setToken, token } = useContext(userDataContext);
+  console.log('Loginpage userData from context:', user);
+  console.log('Loginpage Token from context:', token);
   
 
   const Navigate = useNavigate();
@@ -38,7 +39,7 @@ const Login = () => {
 
       if (response.status === 200) {
         const data = response.data;
-        console.log("Login Response:", data);
+        console.log("Loginpage Response normal:", data);
         setUser(data?.user || null);
         localStorage.setItem('token', data.token);
         Navigate('/Home');
@@ -62,7 +63,7 @@ const Login = () => {
     try {
 
       const response = await signInWithPopup(auth, provider)  
-      console.log('Google-SignIn:', response);
+      console.log('Google-SignIn from Loginpage:', response);
 
 
       const user = response.user;  
@@ -81,7 +82,7 @@ const Login = () => {
        
       });
 
-      console.log("Backend Response:", apiresponse.data);
+      console.log("Loginpage Backend Response:", apiresponse.data);
 
       if (apiresponse.status === 200) {
         const { token, user } = apiresponse.data;
@@ -90,14 +91,14 @@ const Login = () => {
         Navigate('/Profile');   // Redirect to Profile page
       } else {
         setToken('');
-        alert(apiresponse.data.message || "Login failed");
+        alert(apiresponse.data.message || "Google-Signing failed");
       }
 
       
     } catch (error) {
       setToken('');
       console.error("Error during Google Sign-In:", error?.response?.data || error.message);
-      alert("Login failed. Please try again.");
+      alert("Google-Signing in failed. Please try again.");
     }
     
 
