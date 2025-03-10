@@ -73,7 +73,7 @@ module.exports.getUser = async (req, res, next) => {
 
     const decodedtoken = jwt.verify(token, process.env.SECRET_KEY);
 
-    res.status(200).json({ success: true, decodedtoken });
+    res.status(200).json({ success: true, user: decodedtoken });
 
    } catch (error) {
     res.status(500).json({ success: false, message: error.message, error });
