@@ -25,6 +25,10 @@ const UserContext = ({ children }) => {
         } else {  
           //Google Login
           response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/auth/get-user`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
             withCredentials: true
           });
         }
