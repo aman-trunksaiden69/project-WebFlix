@@ -32,13 +32,16 @@ const UserContext = ({ children }) => {
         //Successfully received user data
         if (response && response.data) {
           const data = response.data;
-          console.log("User Response:", data);
+          console.log("API Response Data:", response.data);
+          console.log("User:", response.data.user);
+          console.log("Decoded Token:", response.data.decodedtoken);
+
 
           if (data.success !== false) {
             setUser({
-              username: data.username || data.decodedtoken?.username,
-              photo: data.photo || data.decodedtoken?.photo,
-            });
+              username: data.user?.username || data?.decodedtoken?.username || 'Guest',
+              photo: data.user?.photo || data?.decodedtoken?.photo || 'https://via.placeholder.com/150',
+            });            
             setErrorMessage('');
           } else {
             console.warn("Failed to fetch user:", data.message);
