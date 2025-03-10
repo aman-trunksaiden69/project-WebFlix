@@ -11,9 +11,8 @@ const Login = () => {
 
   document.title = `WebFlix | Login`;
 
-  const { user, setUser, token, setToken } = useContext(userDataContext);
+  const { user, setUser } = useContext(userDataContext);
   console.log('userData:', user);
-  console.log('token:', token);
   
 
   const Navigate = useNavigate();
@@ -41,15 +40,15 @@ const Login = () => {
         const data = response.data;
         console.log("Login Response:", data);
         setUser(data?.user || null);
-        setToken(data.token)
+        localStorage.setItem('token', data.token);
         Navigate('/Home');
       }else{
-        setToken('');
+        localStorage.removeItem('token');
         setError(response.data?.message || "Login failed");
       }
 
     } catch (error) {
-      setToken('');
+      localStorage.removeItem('token');
       console.error("Login failed:", error.response || error.message);
       setError("Login failed. Please check your credentials.");
     }
