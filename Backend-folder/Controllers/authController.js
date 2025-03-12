@@ -1,13 +1,9 @@
-const userModel = require('../Models/userModel')
-const jwt = require('jsonwebtoken')
+const userModel = require('../Models/userModel');
+const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
-
-
-//Routes logic here-
 
 // Google Login
 module.exports.googleLogin = async (req, res, next) => {
-
   try {
     // Check validation errors
     const errors = validationResult(req);
@@ -22,60 +18,65 @@ module.exports.googleLogin = async (req, res, next) => {
 
     if (!user) {
       // Create new user if not exists
-      const newuser = new userModel({
+      user = new userModel({
         username,
         email,
         photo,
         isGoogleUser: true,
         password: null,
-        age: null   
+        age: null
       });
 
-      user = await newuser.save();
+      await user.save();
     }
 
-    // Convert mongoose object to plain data
-    user = user.toObject({ getters: true });
-    delete user.password;
-    delete user.age;    
-
-    // Generate token
-    const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '24d' });
+    // Generate token (only with user._id for security)
+    const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '24d' });
 
     // Save token in cookies for server-side use
     res.cookie('access_token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: process.env.NODE_ENV === 'production', // Only secure in production
       sameSite: 'none'
     });
 
-    // Send token in response for client-side (localStorage)
+    // Send token and user data in response
     res.status(200).json({
       success: true,
-      user,
+      user: { _id: user._id, username: user.username, email: user.email, photo: user.photo },
       token,
       message: 'Google Login successful'
     });
+
   } catch (error) {
-    console.log("Google auth Login error:", error);
+    console.error("Google auth Login error:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 };
 
 // Get User
 module.exports.getUser = async (req, res, next) => {
-   try {
-    const token = req.cookies.access_token
+  try {
+    const token = req.cookies.access_token;
 
-    if(!token){
+    if (!token) {
       return res.status(403).json({ success: false, message: 'Token not found.' });
-    } 
+    }
 
-    const decodedtoken = jwt.verify(token, process.env.SECRET_KEY);
+    // Verify token and get userId
+    const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
 
-    res.status(200).json({ success: true, user: decodedtoken });
+    // Find user by ID
+    const user = await userModel.findById(decodedToken.userId).select('-password');
 
-   } catch (error) {
-    res.status(500).json({ success: false, message: error.message, error });
-   }
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found.' });
+    }
+
+    res.status(200).json({ success: true, user });
+
+  } catch (error) {
+    console.error("Error in getUser:", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
 };
