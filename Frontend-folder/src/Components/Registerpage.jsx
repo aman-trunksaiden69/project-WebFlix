@@ -67,7 +67,7 @@ const Registerpage = () => {
         photo: user.photoURL
       }
 
-      const apiresponse = await axios.post('https://webflix-app-pr72.onrender.com/api/auth/login', userData, {
+      const apiresponse = await axios.post('https://webflix-app-pr72.onrender.com/api/auth/google-login', userData, {
        withCredentials: true,
        headers: {
         'Content-Type': 'application/json',
@@ -78,9 +78,9 @@ const Registerpage = () => {
       console.log("Backend Response:", apiresponse.data);
 
       if (apiresponse.status === 200) {
-        const { token, user } = apiresponse.data;
-        localStorage.setItem('token', token);   // Save token to local storage
-        setUser(user);  // Save user info in context
+        const data = apiresponse.data;
+        setUser(data.user);  // Save user info in context
+        localStorage.setItem('token', data.token);   // Save token to local storage
         Navigate('/Profile');   // Redirect to Profile page
       } else {
         alert(apiresponse.data.message || "Login failed");
