@@ -1,10 +1,11 @@
 const express = require('express');
-const authController = require('../Controllers/authController');
+const authRoute = express.Router();
 const { body } = require('express-validator');
+const authController = require('../Controllers/authController');
 const authMiddleware = require('../Middleware/authMiddleware');
 const ratelimitMiddleware = require('../Middleware/ratelimitMiddleware');
 
-const authRoute = express.Router();
+
 
 //All Routes-
 

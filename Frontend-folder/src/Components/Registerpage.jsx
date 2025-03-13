@@ -40,7 +40,7 @@ const Registerpage = () => {
    }
   );
 
-  console.log("Registerpage Response Backend:", response);
+  console.log("Backend Response registerpage:", response);
 
   if(response.status === 201){
      const data = response.data;

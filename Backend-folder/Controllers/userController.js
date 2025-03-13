@@ -21,6 +21,7 @@ module.exports.registerUser = async (req, res, next) => {
 
     // Check if user already exists
     const isuserAlreadyExits = await userModel.findOne({ email });
+
     if (isuserAlreadyExits) {
       return res.status(400).json({ message: 'User already exists' });
     }
@@ -38,6 +39,7 @@ module.exports.registerUser = async (req, res, next) => {
     const token = await user.generateAuthToken();
 
     res.status(201).json({ token, user });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Something went wrong while registering user' });
@@ -85,7 +87,7 @@ module.exports.getProfile = async (req, res, next) => {
     if (!req.user) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
-    res.status(200).json({ success: true, user: req.user });
+    res.status(200).json({ success: true, user: req.user, message: 'Profile fetched successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Something went wrong while fetching profile' });
@@ -99,8 +101,6 @@ module.exports.editProfile = async (req, res, next) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-
-    console.log("Original User Data: ", user);
 
     // Update name and photo if provided  
     if (req.body.username) user.username = req.body.username;
