@@ -22,7 +22,7 @@ module.exports.googleLogin = async (req, res, next) => {
     }
 
     //create user
-    const user = authService.createGoogleUser({
+    const user = await authService.createGoogleUser({
       username,
       email,
       isGoogleUser: true,
