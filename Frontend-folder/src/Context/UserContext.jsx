@@ -11,61 +11,39 @@ const UserContext = ({ children }) => {
 
   useEffect(() => {
     const fetchUserProfile = async () => {
+      setLoading(true);
       try {
-        let response;
-        
-        if (token) {  
-          //Normal Login
-          response = await axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true,
-          });
-        } else {  
-          //Google Login
-          response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/auth/get-user`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              'Content-Type': 'application/json'
-            },
-            withCredentials: true
-          });
-        }
+        let apiURL = token
+          ? `${import.meta.env.VITE_BASE_URL}/users/profile`
+          : `${import.meta.env.VITE_BASE_URL}/api/auth/get-user`;
 
-        //Successfully received user data
-        if (response && response.data) {
+        const response = await axios.get(apiURL, {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
+
+        if (response.data?.success !== false) {
           const data = response.data;
-          console.log("usercontext API Response Data:", response.data);
-          console.log("usercontext Userdata:", response.data.user);
-          console.log("usercontext Decoded Token:", response.data.decodedtoken);
-
-
-          if (data.success !== false) {
-            setUser({
-              username: data.user?.username || data?.decodedtoken?.username || 'Guest',
-              photo: data.user?.photo || data?.decodedtoken?.photo || 'https://via.placeholder.com/150',
-            });            
-            setErrorMessage('');
-          } else {
-            console.warn("usercontext Failed to fetch user:", data.message);
-            setErrorMessage(data.message || 'usercontext Failed to fetch user data.');
-          }
+          setUser({
+            username: data.user?.username || data?.decodedtoken?.username || 'Guest',
+            photo: data.user?.photo || data?.decodedtoken?.photo || 'https://via.placeholder.com/150',
+          });
+          setErrorMessage('');
         } else {
-          console.warn("usercontext No data received.");
-          setErrorMessage('usercontext No user data received.');
+          setErrorMessage(data.message || 'Failed to fetch user data.');
         }
       } catch (error) {
-        console.error("usercontext Error fetching user profile:", error.response?.data || error.message);
-        localStorage.removeItem('token');  //Token hatao agar error aaye
+        console.error("Error fetching user profile:", error.response?.data || error.message);
+        localStorage.removeItem('token');
+        setToken('');
         setUser(null);
-        setErrorMessage("usercontext Failed to fetch user data. Please login again.");
+        setErrorMessage("Failed to fetch user data. Please login again.");
       } finally {
         setLoading(false);
       }
     };
 
-    if (token || document.cookie.includes('token')) {  //Sirf tabhi call karo jab token ya cookie ho
+    if (token) {
       fetchUserProfile();
     } else {
       setLoading(false);
