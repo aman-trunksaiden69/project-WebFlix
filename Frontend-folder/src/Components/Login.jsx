@@ -63,15 +63,12 @@ const Login = () => {
     try {
 
       const response = await signInWithPopup(auth, provider)  
-      console.log('Google-SignIn from Loginpage:', response);
-
-
+      console.log('Google-SignIn:', response);
       const user = response.user;  
       const userData = {
         username: user.displayName,
         email: user.email,
-        photo: user.photoURL,
-        isGoogleUser: true
+        photo: user.photoURL
       }
 
       const apiresponse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/google-login`, userData, {
@@ -82,26 +79,23 @@ const Login = () => {
        
       });
 
-      console.log("Loginpage Backend Response:", apiresponse.data);
+      console.log("Backend Response:", apiresponse.data);
 
       if (apiresponse.status === 200) {
-        const { token, user } = apiresponse.data;
-        setToken(token)   //Save token to local storage
-        setUser(user);  //Save user info in context
+        const data = apiresponse.data;
+        setUser(data.user);  // Save user info in context
+        localStorage.setItem('token', data.token);   // Save token to local storage
         Navigate('/Profile');   // Redirect to Profile page
       } else {
-        setToken('');
-        alert(apiresponse.data.message || "Google-Signing failed");
+        alert(apiresponse.data.message || "Login failed");
       }
 
       
     } catch (error) {
-      setToken('');
-      console.error("Error during Google Sign-In:", error?.response?.data || error.message);
-      alert("Google-Signing in failed. Please try again.");
+      console.error("Error during Google Sign-In:", error);
+      alert("Login failed. Please try again.");
     }
     
-
   };
 
   return (
