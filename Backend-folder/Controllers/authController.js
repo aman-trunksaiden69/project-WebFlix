@@ -12,7 +12,7 @@ module.exports.googleLogin = async (req, res, next) => {
       return res.status(400).json({ success: false, errors: errors.array() });
     }
 
-    const { username, email } = req.body;
+    const { username, email, photo } = req.body;
 
     // Check if user already exists
     let isuserAlreadyExits = await userModel.findOne({ email }).select('-password');
@@ -25,10 +25,9 @@ module.exports.googleLogin = async (req, res, next) => {
     const user = authService.createGoogleUser({
       username,
       email,
-      age,
       isGoogleUser: true,
       password: null,
-      photo: req.body.photo || null
+      photo: photo || null
     });
 
 

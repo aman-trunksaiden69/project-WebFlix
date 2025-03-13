@@ -3,7 +3,7 @@ const userModel = require('../Models/userModel');
 // All functions here...
 
 //Google Register function
-module.exports.createGoogleUser = async ({ username, email, photo, isGoogleUser, password, age }) => {
+module.exports.createGoogleUser = async ({ username, email, photo, isGoogleUser, password }) => {
   if (!username || !email || !photo || !isGoogleUser) {
     throw new Error('All fields are required');
   }
@@ -19,7 +19,6 @@ module.exports.createGoogleUser = async ({ username, email, photo, isGoogleUser,
     photo,
     isGoogleUser,
     password,
-    age
   });
 
   return Googleuser;
