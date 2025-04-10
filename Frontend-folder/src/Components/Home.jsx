@@ -48,7 +48,7 @@ const Home = () => {
      
     <div className='home w-screen h-screen bg-[#000] flex flex-col justify-between gap-[5%] overflow-auto overflow-x-auto'>
   
-    <div className='flex flex-col items-center justify-center gap-2 mt-5'>
+      <div className='flex flex-col items-center justify-center gap-2 mt-5'>
         <h1 className="anim flex items-center justify-center font-semibold gap-2 text-3xl text-white">
          <span  style={{backgroundImage: 'url(image.gif)',}} className="space bg-center bg-cover text-transparent font-monument tracking-widest z-10 mix-blend-difference">
           WebFlix
@@ -58,9 +58,9 @@ const Home = () => {
         <div className='h-full rounded-md w-full mt-2'>
         <Topnav />
         </div>
-    </div>      
+      </div>      
     
-       <div className='flex flex-col gap-1 p-1'>
+      <div className='flex flex-col gap-1 p-1'>
          <h1 className='text-pink-400 font-semibold text-xl mb-1'>New Feeds</h1>
       
          <nav className='sidebar flex text-white border-[1px] border-pink-400 bg-[#3F3F3F] text-lg gap-1 font-["gilroy"] overflow-auto overflow-x-auto rounded-md'>
@@ -77,13 +77,12 @@ const Home = () => {
          </nav>
       
          
-       </div>
+      </div>
 
-       <div className='p-1'>
+      <div className='p-1'>
        <Header data={wallpaper} />
-       </div>
+      </div>
 
-      
 
       <div className='flex justify-between p-1'>
       <h1 className='text-xl font-semibold text-pink-400'>New Releases</h1>

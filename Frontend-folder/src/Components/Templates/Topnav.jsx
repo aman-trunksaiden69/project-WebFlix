@@ -14,10 +14,21 @@ const Topnav = () => {
   const [searches, setsearches] = useState([]);
   const [isExpanded, setisExpanded] = useState(false);
 
+
+  // Function to fetch search results data- 
+  const getdata = async () => {
+    try {
+      const { data } = await axios.get(`/search/multi?query=${query}`);
+      setsearches(data.results || []);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   // Debounce effect to reduce API calls
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (query.trim()) {
+      if (query.trim()) { // Check if query is not empty
         getdata();
       } else {
         setsearches([]); // Clear searches when query is empty
@@ -27,14 +38,7 @@ const Topnav = () => {
     return () => clearTimeout(timer);
   }, [query]);
 
-  const getdata = async () => {
-    try {
-      const { data } = await axios.get(`/search/multi?query=${query}`);
-      setsearches(data.results || []);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+  
 
   return (
     <div className="flex items-center gap-2 p-1 w-[100%] h-[10vh] rounded-lg relative">
