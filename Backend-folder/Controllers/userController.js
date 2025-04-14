@@ -14,7 +14,7 @@ module.exports.registerUser = async (req, res, next) => {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { username, email, age, password } = req.body;
+    const { username, email, age, password, googleId } = req.body;
 
     // Hashing password
     const hashedPassword = await userModel.hashPassword(password);
@@ -32,7 +32,8 @@ module.exports.registerUser = async (req, res, next) => {
       email,
       age,
       password: hashedPassword,
-      photo: req.body.photo || null  // Handle photo field properly
+      photo: req.body.photo || null,  // Handle photo field properly
+      googleId,
     });
 
     // Generating token
@@ -48,6 +49,7 @@ module.exports.registerUser = async (req, res, next) => {
 
 // Login route logic
 module.exports.loginUser = async (req, res, next) => {
+
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -67,14 +69,16 @@ module.exports.loginUser = async (req, res, next) => {
     }
 
     const token = await user.generateAuthToken();
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'none',  // For cross-site requests in production
-      maxAge: 24 * 60 * 60 * 1000  // 1 day expiry
-    });
 
-    res.status(200).json({ token, user });
+    //res.cookie('token', token, {
+    //  httpOnly: true,
+     // secure: process.env.NODE_ENV === 'production',
+    //  sameSite: 'none',  // For cross-site requests in production
+    //  maxAge: 24 * 60 * 60 * 1000  // 1 day expiry
+    //});
+
+    res.status(200).json({ message: 'Logged in successfully', token, user });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Something went wrong during login' });
@@ -83,6 +87,7 @@ module.exports.loginUser = async (req, res, next) => {
 
 // Profile route logic
 module.exports.getProfile = async (req, res, next) => {
+
   try {
     if (!req.user) {
       return res.status(401).json({ message: 'Unauthorized' });
@@ -124,6 +129,7 @@ module.exports.editProfile = async (req, res, next) => {
 
 // Logout route logic
 module.exports.logoutUser = async (req, res, next) => {
+  
   try {
     res.clearCookie('token');
     const token = req.cookies.token || (req.headers.authorization && req.headers.authorization.split(' ')[1]);

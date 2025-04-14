@@ -2,15 +2,11 @@ const mongoose = require('mongoose');
 
 
 const connectDB = async () => {
-    try {
-        const connect = await mongoose.connect(process.env.DB_CONNECT);
-    
-        console.log(`MongoDB Connected: ${connect.connection.host}`);
-
-    } catch (error) {
-        console.error(`Error: ${error.message}`);
-        process.exit(1);
-    }
-};
+    mongoose.connect('mongodb+srv://Instagram-Database:IXmJalzzcUkMvJWz@insta.vrl8y.mongodb.net/webflix-database').then(() => {
+        console.log('Connected to MongoDB');
+      }).catch((err) => {
+        console.error('Failed to connect to MongoDB', err);
+      });
+}
 
 module.exports = connectDB;

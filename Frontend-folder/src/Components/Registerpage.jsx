@@ -1,10 +1,8 @@
-import React, { useContext, useState} from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 import { userDataContext } from '../Context/UserContext';
-import { auth, provider } from '../Utils/firebase';
-import { signInWithPopup } from 'firebase/auth';
 
 
 const Registerpage = () => {
@@ -32,7 +30,7 @@ const Registerpage = () => {
     password: Password,
   }
 
-  const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser, {
+  const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/register`, newUser, {
     withCredentials: true,  //Cookies support
     headers: {
       'Content-Type': 'application/json'
@@ -57,44 +55,24 @@ const Registerpage = () => {
   };
 
   const GoogleHandler = async () => {
-    
     try {
-
-      const response = await signInWithPopup(auth, provider)  
-      console.log('Google-SignIn:', response);
-      const user = response.user;  
-      const userData = {
-        username: user.displayName,
-        email: user.email,
-        photo: user.photoURL
-      }
-
-      const apiresponse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/google-login`, userData, {
-       withCredentials: true,
-       headers: {
-        'Content-Type': 'application/json',
-       },
-       
-      });
-
-      console.log("Backend Response:", apiresponse.data);
-
-      if (apiresponse.status === 200) {
-        const data = apiresponse.data;
-        setUser(data.user);  // Save user info in context
-        localStorage.setItem('token', data.token);   // Save token to local storage
-        Navigate('/Profile');   // Redirect to Profile page
-      } else {
-        alert(apiresponse.data.message || "Login failed");
-      }
-
-      
+      //call the authentication process by calling the backend route
+      window.location.href = "https://movies-backend-07f5.onrender.com/auth/google"; //This will redirect to Google's OAuth page
     } catch (error) {
-      console.error("Error during Google Sign-In:", error);
-      alert("Login failed. Please try again.");
+      console.error("Error with Google signup:", error);
     }
-    
   };
+
+  useEffect(() => {
+    // Extract token from URL
+    const params = new URLSearchParams(window.location.search);
+    const authToken = params.get("token");
+    if (authToken) {
+      localStorage.setItem("token", authToken, { expires: "1d" });
+      Navigate("/profile", { replace: true });
+    }
+  }, [Navigate]);
+
 
   return (
     <>

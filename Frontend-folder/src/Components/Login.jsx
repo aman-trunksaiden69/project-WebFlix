@@ -1,15 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { userDataContext } from '../Context/UserContext';
 import axios from 'axios';
-import { auth, provider } from '../Utils/firebase';
-import { signInWithPopup } from 'firebase/auth';
 
 
 const Login = () => {
 
   document.title = `WebFlix | Login`;
+
 
   const { user, setUser, setToken, token } = useContext(userDataContext);
   console.log('Loginpage userData from context:', user);
@@ -31,7 +30,7 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, newUser, {
+      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/login`, newUser, {
         headers: {
           "Content-Type": "application/json"  //JSON format
         }
@@ -59,44 +58,28 @@ const Login = () => {
   };
 
   const GoogleHandler = async () => {
-    
     try {
-
-      const response = await signInWithPopup(auth, provider)  
-      console.log('Google-SignIn:', response);
-      const user = response.user;  
-      const userData = {
-        username: user.displayName,
-        email: user.email,
-        photo: user.photoURL
-      }
-
-      const apiresponse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/google-login`, userData, {
-       withCredentials: true,
-       headers: {
-        'Content-Type': 'application/json',
-       },
-       
-      });
-
-      console.log("Backend Response:", apiresponse.data);
-
-      if (apiresponse.status === 200) {
-        const data = apiresponse.data;
-        setUser(data.user);  // Save user info in context
-        localStorage.setItem('token', data.token);   // Save token to local storage
-        Navigate('/Profile');   // Redirect to Profile page
-      } else {
-        alert(apiresponse.data.message || "Login failed");
-      }
-
-      
+       window.location.href = 'https://webflix-server-rcqi.onrender.com/auth/google';
     } catch (error) {
-      console.error("Error during Google Sign-In:", error);
-      alert("Login failed. Please try again.");
+      console.error('Error with Google login:', error);
     }
-    
+    const user = await axios.get('https://webflix-server-rcqi.onrender.com/auth/google/callback');
+    console.log(user);
+    Navigate('/');
   };
+
+  useEffect(() => {
+    // Extract token from URL
+    const params = new URLSearchParams(window.location.search);
+    const authToken = params.get("token");
+    
+    // If token is found in URL, save it to local storage and redirect to profile page
+    if (authToken) {
+      localStorage.setItem("token", authToken, { expires:"1d"});
+      Navigate("/profile", { replace: true });
+    }
+  }, [Navigate]);
+
 
   return (
     <>

@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
+
 //User Schema Model-
 const userSchema = new mongoose.Schema({
 
@@ -14,7 +15,9 @@ const userSchema = new mongoose.Schema({
 
     email: {
         type: String,
-        required: true,
+        required: function (){
+            return !this.googleId; // If not a Google user, email is required
+        },
         unique: true,
         minLength: [3, 'Email must be at least 3 characters long'],
     },
@@ -22,9 +25,9 @@ const userSchema = new mongoose.Schema({
     age: {
         type: Number,
         required: function (){
-            return !this.isGoogleUser;
+            return !this.googleId; // If not a Google user, age is required
         },
-        default: null,
+        //default: null,
     },
 
     photo: {
@@ -40,10 +43,22 @@ const userSchema = new mongoose.Schema({
         select: false,
         default: null,
     },
-    isGoogleUser: {
-        type: Boolean,
-        default: false  // Default me false, Google se aaye toh true karenge
-    }
+
+    googleProfile: {
+        type: String,
+        default: null,
+    },
+
+    token: {
+        type: String,
+    },
+
+    googleId: {
+        type: String,
+        required: function() {
+          return !this.email; 
+        },
+    },
 
 }, { timestamps: true });
 
