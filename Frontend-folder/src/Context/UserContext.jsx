@@ -14,8 +14,8 @@ const UserContext = ({ children }) => {
       setLoading(true);
       try {
         let apiURL = token
-          ? `${import.meta.env.VITE_BASE_URL}/users/profile`
-          : `${import.meta.env.VITE_BASE_URL}/api/auth/get-user`;
+          ? `${import.meta.env.VITE_BASE_URL}/user/profile`
+          : `${import.meta.env.VITE_BASE_URL}/auth/google`;
 
         const response = await axios.get(apiURL, {
           headers: { Authorization: `Bearer ${token}` },
