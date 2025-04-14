@@ -42,7 +42,7 @@ const Editprofile = () => {
 
         try{
 
-         const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/editprofile`, formData, 
+         const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/editprofile`, formData, 
             {
                headers: {
                 "Content-Type": "multipart/form-data",
