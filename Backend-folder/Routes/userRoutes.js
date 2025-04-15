@@ -6,6 +6,7 @@ const userModel = require('../Models/userModel');
 const authMiddleware = require('../Middleware/authMiddleware');
 const upload = require('../Utils/upload');
 const passport = require('passport');
+const axios = require('axios');
 
 
 
