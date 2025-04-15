@@ -5,6 +5,7 @@ dotenv.config();
 const path = require('path');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const MongoStore = require('connect-mongo');
 const session = require('express-session');
 const morgan = require('morgan');
 const app = express();
@@ -31,8 +32,6 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(cookieParser());    //cookie parser
 
 // Session Configuration
-const MongoStore = require('connect-mongo');
-const userModel = require('./Models/userModel');
 const store = MongoStore.create({
   mongoUrl: process.env.DB_CONNECT,
   collectionName: 'sessions'
