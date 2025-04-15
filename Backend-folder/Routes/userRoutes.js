@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
 const userController = require('../Controllers/userController');
+const userModel = require('../Models/userModel');
 const authMiddleware = require('../Middleware/authMiddleware');
 const upload = require('../Utils/upload');
 const passport = require('passport');
@@ -75,7 +76,7 @@ router.get('/auth/google/callback', async (req, res) => {
 
       console.log(profileData.data);
       // Find or create user based on Google profile
-      let user = await User.findOne({ googleId: profileData.data.sub });
+      let user = await userModel.findOne({ googleId: profileData.data.sub });
       const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1d' });
       if (!user) {
         const profileImage = profileData.data.picture;
@@ -84,7 +85,7 @@ router.get('/auth/google/callback', async (req, res) => {
         const googleId = profileData.data.sub;
       
         // Create new user with Google profile data
-        user = new User({
+        user = new userModel({
           username,
           googleId,
           token,

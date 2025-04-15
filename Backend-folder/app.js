@@ -11,6 +11,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const connectDB = require('./DB/db');
 const userRoutes = require('./Routes/userRoutes');
+const userModel = require('./Models/userModel');
 
 
 
@@ -31,6 +32,7 @@ app.use(cookieParser());    //cookie parser
 
 // Session Configuration
 const MongoStore = require('connect-mongo');
+const userModel = require('./Models/userModel');
 const store = MongoStore.create({
   mongoUrl: process.env.DB_CONNECT,
   collectionName: 'sessions'
@@ -58,11 +60,11 @@ passport.use(new GoogleStrategy({
   failureRedirect: '/login',
 }, async (accessToken, refreshToken, profile, cb) => {
   try {
-    const user = await User.findOne({ googleId: profile.id });
+    const user = await userModel.findOne({ googleId: profile.id });
     if (user) {
       return cb(null, user);
     } else {
-      const newUser = new User({
+      const newUser = new userModel({
         username: profile.displayName,
         googleId: profile.id,
       });
