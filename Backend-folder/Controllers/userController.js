@@ -36,7 +36,7 @@ module.exports.registerUser = async (req, res, next) => {
       googleId,
     });
 
-    // Generating token
+    // Generating token for user
     const token = await user.generateAuthToken();
 
     res.status(201).json({ token, user });

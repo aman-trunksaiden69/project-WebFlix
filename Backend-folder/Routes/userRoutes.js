@@ -79,7 +79,9 @@ router.get('/auth/google/callback', async (req, res) => {
       console.log(profileData.data);
       // Find or create user based on Google profile
       let user = await userModel.findOne({ googleId: profileData.data.sub });
-      const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1d' });
+      
+      const token = user.generateAuthToken(); // Generate JWT token for the user
+
       if (!user) {
         const profileImage = profileData.data.picture;
         const email = profileData.data.email;
