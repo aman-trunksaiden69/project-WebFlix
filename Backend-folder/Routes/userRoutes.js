@@ -82,7 +82,7 @@ router.get('/auth/google/callback', async (req, res) => {
       let user = await userModel.findOne({ googleId: profileData.data.sub });
 
       if (!user) {
-        
+
         //google user data
         const profileImage = profileData.data.picture;
         const email = profileData.data.email;
@@ -93,7 +93,6 @@ router.get('/auth/google/callback', async (req, res) => {
         user = new userModel({
           username,
           googleId,
-          token,
           email,
           googleProfile: profileImage,
           age: 18, // Default age if not provided
@@ -115,10 +114,9 @@ router.get('/auth/google/callback', async (req, res) => {
       }else{
         res.redirect(`http://localhost:5173/login?token=${token}`);
       }
-      // res.status(200).send({ message: 'Logged in successfully'});
       console.log(user);
     }else{
-      res.status(400).send({ message: 'Failed to login' });
+      res.status(400).send({ message: 'Google login Failed.' });
     }
       
     } catch (error) {
