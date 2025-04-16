@@ -77,12 +77,13 @@ router.get('/auth/google/callback', async (req, res) => {
       });
 
       console.log(profileData.data);
+
       // Find or create user based on Google profile
       let user = await userModel.findOne({ googleId: profileData.data.sub });
 
-      const token = await user.generateAuthToken(); // Generate JWT token for the user
-
       if (!user) {
+        
+        //google user data
         const profileImage = profileData.data.picture;
         const email = profileData.data.email;
         const username = profileData.data.name;
@@ -98,12 +99,14 @@ router.get('/auth/google/callback', async (req, res) => {
           age: 18, // Default age if not provided
           password: googleId, // You may want to use a secure random value instead
         });
+        
         await user.save();
         upload.single(user.photo);
       }
  
-
-      // Create JWT token for the user
+      // Generate JWT token for the user
+      const token = await user.generateAuthToken(); 
+  
 
       // Redirect to frontend with the token
     if(accessToken ){
