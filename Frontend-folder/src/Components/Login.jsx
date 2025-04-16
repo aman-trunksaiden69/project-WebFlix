@@ -65,7 +65,7 @@ const Login = () => {
     }
     const user = await axios.get('https://webflix-server-rcqi.onrender.com/auth/google/callback');
     console.log(user);
-    Navigate('/');
+    Navigate('/Home');
   };
 
   useEffect(() => {
