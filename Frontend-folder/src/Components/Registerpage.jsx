@@ -55,23 +55,28 @@ const Registerpage = () => {
   };
 
   const GoogleHandler = async () => {
-    try {
-      //call the authentication process by calling the backend route
-      window.location.href = "https://movies-backend-07f5.onrender.com/auth/google"; //This will redirect to Google's OAuth page
-    } catch (error) {
-      console.error("Error with Google signup:", error);
-    }
-  };
-
-  useEffect(() => {
-    // Extract token from URL
-    const params = new URLSearchParams(window.location.search);
-    const authToken = params.get("token");
-    if (authToken) {
-      localStorage.setItem("token", authToken, { expires: "1d" });
-      Navigate("/profile", { replace: true });
-    }
-  }, [Navigate]);
+      try {
+         window.location.href = 'https://webflix-server-rcqi.onrender.com/auth/google';
+      } catch (error) {
+        console.error('Error with Google login:', error);
+      }
+      const user = await axios.get('https://webflix-server-rcqi.onrender.com/auth/google/callback');
+      console.log(user);
+      Navigate('/Home');
+    };
+  
+    useEffect(() => {
+      // Extract token from URL
+      const params = new URLSearchParams(window.location.search);
+      const authToken = params.get("token");
+      
+      // If token is found in URL, save it to local storage and redirect to profile page
+      if (authToken) {
+        localStorage.setItem("token", authToken, { expires:"1d"});
+        Navigate("/profile", { replace: true });
+      }
+    }, [Navigate]);
+  
 
 
   return (

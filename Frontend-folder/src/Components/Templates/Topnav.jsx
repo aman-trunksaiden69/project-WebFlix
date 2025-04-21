@@ -21,7 +21,7 @@ const Topnav = () => {
       const { data } = await axios.get(`/search/multi?query=${query}`);
       setsearches(data.results || []);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching search data:', error);
     }
   };
 

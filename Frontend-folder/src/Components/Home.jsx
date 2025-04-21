@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from './Templates/Sidebar'
 import Topnav from './Templates/Topnav'
 import axios from '../Utils/Axios'
 import Header from './Templates/Header'
@@ -20,6 +19,7 @@ const Home = () => {
   const GetHeaderWallpaper = async () => {
     try {
       const { data } = await axios.get(`/trending/all/day`);
+      //generate random numbers and get integer random data from the array 
       let randomdata = data.results[(Math.random() * data.results.length).toFixed()];
       setWallpaper(randomdata);
     } catch (error) {
@@ -32,7 +32,7 @@ const Home = () => {
       const { data } = await axios.get(`/trending/${category}/day`);
       setTrending(data.results);
     } catch (error) {
-      console.log("Error: data not found! ", error);
+      console.log("Error: Trending data not found! ", error);
     }
   };
 
