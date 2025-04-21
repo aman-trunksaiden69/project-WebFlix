@@ -7,6 +7,7 @@ import Movie from './Components/Movie'
 import Tvshowspage from './Components/Tvshowspage'
 import Peoplepage from './Components/Peoplepage'
 import Moviedetails from './Components/Moviedetails'
+import Movieplayer from './Components/Templates/Movieplayer'
 import Peopledetails from './Components/Peopledetails'
 import Tvdetails from './Components/Tvdetails'
 import Trailer from './Components/Templates/Trailer'
@@ -21,6 +22,7 @@ import Authenticatedroutes from './Components/Authenticaton'
 import './index.css';
 import Logout from './Components/Logout'
 import Editprofile from './Components/Templates/Editprofile'
+import Tvplayer from './Components/Templates/Tvplayer'
 
 
 
@@ -38,10 +40,12 @@ const App = () => {
         <Route path='/movie' element={<Authenticatedroutes><Movie /></Authenticatedroutes>} />
         <Route path='/movie/details/:id' element={<Authenticatedroutes><Moviedetails /></Authenticatedroutes>}>
           <Route path='/movie/details/:id/trailer' element={<Authenticatedroutes><Trailer /></Authenticatedroutes>} />
+          <Route path='/movie/details/:id/movieplayer' element={<Authenticatedroutes><Movieplayer /></Authenticatedroutes>} />
         </Route>
         <Route path='/tv' element={<Authenticatedroutes><Tvshowspage /></Authenticatedroutes>} />
         <Route path='/tv/details/:id' element={<Authenticatedroutes><Tvdetails /></Authenticatedroutes>} >
           <Route path='/tv/details/:id/trailer' element={<Authenticatedroutes><Tvdetails /></Authenticatedroutes>} />
+          <Route path='/tv/details/:id/:eid/:sid/tvplayer' element={<Authenticatedroutes><Tvplayer /></Authenticatedroutes>} />
         </Route>
         <Route path='/Peoplepage' element={<Authenticatedroutes><Peoplepage /></Authenticatedroutes>} />
         <Route path='/Peoplepage/details/:id' element={<Authenticatedroutes><Peopledetails /></Authenticatedroutes>} />

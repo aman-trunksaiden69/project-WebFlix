@@ -8,7 +8,7 @@ import { asyncloadmoviedata, removemoviedata } from '../Store/Actions/Movieactio
 
 const Moviedetails = () => {
 
-  document.title = "WebFlix"
+  document.title = "WebFlix | Movie Streaming"
 
   const {pathname} = useLocation()
   const navigate = useNavigate()
@@ -16,7 +16,6 @@ const Moviedetails = () => {
   const dispatch = useDispatch()
   const {info} = useSelector(state => state.movie)
  
-
 
   useEffect(() => {
      dispatch(asyncloadmoviedata(id))
@@ -72,13 +71,25 @@ const Moviedetails = () => {
           alt=""
         />
         
+        {/* Play Trailer and Watch Now buttons */}
+        <div className='p-1 flex items-center justify-between'>
         <Link
-            className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[60%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
+            className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[0%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
             to={`${pathname}/trailer`}
           >
             {" "}
             <i className="text-xl mr-2 ri-play-fill"></i> Play Trailer
         </Link>
+
+        <Link
+            className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[60%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
+            to={`/movie/details/${id}/movieplayer`}
+          >
+            {" "}
+            <i className="text-xl mr-2 ri-play-fill"></i> Watch Now
+        </Link>
+        </div>
+        
        
         <div className="content">
           <h1 className="text-3xl font-black mt-5">

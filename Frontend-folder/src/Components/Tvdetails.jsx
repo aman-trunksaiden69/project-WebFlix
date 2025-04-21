@@ -8,7 +8,7 @@ import { asyncloadtvdata, removetvdata } from '../Store/Actions/TVaction'
 
 const Tvdetails = () => {
 
-  document.title = "WebFlix"
+  document.title = "WebFlix | Tv Streaming"
 
   const {pathname} = useLocation()
   const navigate = useNavigate()
@@ -72,15 +72,28 @@ const Tvdetails = () => {
           }`}
           alt=""
         />
-
+  
+        {/* Play Trailer and Watch Now buttons */}
+        <div className='p-1 flex items-center justify-between'>
         <Link
-          className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[60%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
+          className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[0%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
           to={`${pathname}/trailer`}
         >
           {" "}
           <i className="text-xl mr-2 ri-play-fill"></i> 
           Play Trailer
         </Link>
+
+        <Link
+          className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[60%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
+          to={`/tv/details${info.detail.id}/${info.detail.number_of_seasons}/${info.detail.number_of_episodes}/tvplayer`}
+        >
+          {" "}
+          <i className="text-xl mr-2 ri-play-fill"></i> 
+          Watch Now
+        </Link>
+        </div>
+        
 
         <div className="content">
           <h1 className="text-3xl font-black mt-5 ">
