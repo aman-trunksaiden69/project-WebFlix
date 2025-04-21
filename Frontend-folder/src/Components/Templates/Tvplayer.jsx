@@ -10,9 +10,9 @@ const Tvplayer = () => {
     const Navigate = useNavigate();
     const {pathname} = useLocation();
     const category = pathname.includes('movie') ? 'movie' : 'tv';
-    const tvid = useSelector(state => state.[category].info.detail.id);
-    const tveid = useSelector(state => state.[category].info.detail.number_of_episodes);
-    const tvsid = useSelector(state => state.[category].info.detail.number_of_seasons);
+    const tvid = useSelector(state => state[category].info.detail.id);
+    const tveid = useSelector(state => state[category].info.detail.number_of_episodes);
+    const tvsid = useSelector(state => state[category].info.detail.number_of_seasons);
 
 
   return (
