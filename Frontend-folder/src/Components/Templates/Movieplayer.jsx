@@ -25,7 +25,7 @@ const Movieplayer = () => {
     <div className="absolute overflow-hidden w-screen h-screen flex items-center justify-center bg-[#000000f5] top-0 left-0">
           <Link
             onClick={() => Navigate(-1)}
-            className="hover:text-[#6556CD] absolute text-2xl top-[5%] right-[5%] ri-close-fill"
+            className="hover:text-[#6556CD] absolute text-2xl top-[5%] right-[5%] ri-close-fill text-white"
           ></Link>
         {movieid ?  
         
