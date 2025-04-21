@@ -73,7 +73,7 @@ const Registerpage = () => {
       // If token is found in URL, save it to local storage and redirect to profile page
       if (authToken) {
         localStorage.setItem("token", authToken, { expires:"1d"});
-        Navigate("/profile", { replace: true });
+        Navigate("/Home", { replace: true });
       }
     }, [Navigate]);
   
