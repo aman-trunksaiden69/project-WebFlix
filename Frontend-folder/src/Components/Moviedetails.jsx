@@ -72,9 +72,9 @@ const Moviedetails = () => {
         />
         
         {/* Play Trailer and Watch Now buttons */}
-        <div className='p-2 bg-red-200 flex items-center justify-between'>
+        <div className='p-1 flex items-center justify-between'>
         <Link
-            className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[0%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
+            className="shadow-[2px_4px_4px_rgba(0,1,0,0.5)] absolute top-[94%] left-[1%] p-2 bg-gradient-to-r from-[#1289F4] via-[#5042A7] to-[#CF0C72] font-medium rounded-lg hover:text-black hover:scale-105 duration-200"
             to={`${pathname}/trailer`}
           >
             {" "}
