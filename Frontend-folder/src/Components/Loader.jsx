@@ -4,7 +4,7 @@ import looploader from '/bubble.gif'
 const Loader = () => {  
   
 
-  return (
+return (
     <div className="relative w-screen h-screen bg-[#000000]">
       <div id="main" className="flex flex-col items-center">
       <img className="w-[80%] h-[90vh] object-cover" src={looploader} alt="broken" />
@@ -19,7 +19,7 @@ const Loader = () => {
 
       </div>
     </div>
-  )
+  );
 }
 
 export default Loader

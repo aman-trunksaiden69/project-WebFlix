@@ -3,7 +3,7 @@ import { loadpeopledata } from "../Reducers/Peopleslice";
 export { removepeopledata } from "../Reducers/Peopleslice";
 
 
-
+//redux thunk action to load people data
 export const asyncloadpeopledata = (id) => async (dispatch, getState) =>{
     try {
         const detail = await axios.get(`/people/${id}`)
@@ -21,6 +21,7 @@ export const asyncloadpeopledata = (id) => async (dispatch, getState) =>{
             MovieCredits: Moviecredits.data,
         }
         
+        //store people data into store
         dispatch(loadpeopledata(alldetailsdata))
 
     } catch (error) {

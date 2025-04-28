@@ -11,19 +11,16 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Trendingpage = () => {
 
+  document.title = "WebFlix | Trending";
 
-   document.title = "WebFlix | Trending"
+  const Navigate = useNavigate();
+  const [category, setcategory] = useState("all");
+  const [duration, setduration] = useState("day");
+  const [trending, settrending] = useState([]);
+  const [page, setpage] = useState(1);
+  const [hasMore, sethasMore] = useState(true);
 
 
-   const Navigate = useNavigate()
-   const [category, setcategory] = useState("all")
-   const [duration, setduration] = useState("day") 
-   const [trending, settrending] = useState([])
-   const [page, setpage] = useState(1)
-   const [hasMore, sethasMore] = useState(true)
-
- 
-   
   const TrendingshowsHandler = async() => {
     try {
 
@@ -42,7 +39,7 @@ const Trendingpage = () => {
     }catch (error) {
       console.log("Error:", error)
     }
-  }
+  };
 
   const refreshHandler = () => {
       if(trending.length === 0){
@@ -52,7 +49,7 @@ const Trendingpage = () => {
          settrending([])
          TrendingshowsHandler()
       }
-  }
+  };
 
 
   useEffect(() => {
@@ -60,9 +57,9 @@ const Trendingpage = () => {
   }, [category,duration])
   
 
-  return  trending.length > 0 ? ( 
+return  trending.length > 0 ? ( 
   
-<div className='trending w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-300 via-pink-400 to-white flex flex-col gap-1 items-center'>
+  <div className='trending w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-300 via-pink-400 to-white flex flex-col gap-1 items-center'>
 
     <div className='flex p-2 item-center justify-between gap-1 h-[15%] w-[100%] bg-black'>
       <div className='w-full flex items-center justify-between'>
@@ -109,7 +106,7 @@ const Trendingpage = () => {
 
     </div>
 
-</div>
+  </div>
   ) : (
     <Loader />
   );

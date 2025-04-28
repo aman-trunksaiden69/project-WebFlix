@@ -3,7 +3,7 @@ import { loadtvdata } from "../Reducers/Tvslice";
 export { removetvdata } from "../Reducers/Tvslice";
 
 
-
+//redux thunk function to fetch tv data
 export const asyncloadtvdata = (id) => async (dispatch, getState) =>{
     try {
         const detail = await axios.get(`/tv/${id}`)
@@ -24,6 +24,7 @@ export const asyncloadtvdata = (id) => async (dispatch, getState) =>{
             watchproviders: watchproviders.data.results.IN
         }
         
+        //storing all the data in redux store
         dispatch(loadtvdata(alldetailsdata))
 
     } catch (error) {

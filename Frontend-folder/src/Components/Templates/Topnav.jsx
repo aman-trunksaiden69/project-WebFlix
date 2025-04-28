@@ -40,7 +40,7 @@ const Topnav = () => {
 
   
 
-  return (
+return (
     <div className="flex items-center gap-2 p-1 w-[100%] h-[10vh] rounded-lg relative">
       {/* Logo */}
       <div className="h-full flex items-center">

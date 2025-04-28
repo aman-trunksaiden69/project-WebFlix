@@ -5,7 +5,7 @@ import noimage from '/noimage.jpg'
 
 const Cards = ({data,title}) => {
   
-  return (
+return (
   <div className='w-full h-full flex flex-col gap-5 items-center mt-4 font-["gilroy"]'>
 
     {data.map((c, i) => (
@@ -35,9 +35,8 @@ const Cards = ({data,title}) => {
 
     ))}
     
-    </div>
-    
-  )
+  </div>
+  );
 }
 
 export default Cards

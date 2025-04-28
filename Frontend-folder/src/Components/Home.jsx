@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
 
-  document.title = "WebFlix | Home"
+  document.title = "WebFlix | Home";
 
   const [wallpaper, setWallpaper] = useState(null);
   const [trending, setTrending] = useState(null);
@@ -42,7 +42,7 @@ const Home = () => {
   }, [category]);
 
            
-  return wallpaper && trending ? (
+return wallpaper && trending ? (
   
   <>
      
@@ -98,7 +98,7 @@ const Home = () => {
   </>
   ) : (
     <Loader />
-  )
+  );
 }
 
 export default Home

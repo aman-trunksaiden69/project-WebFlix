@@ -2,9 +2,9 @@ import React from 'react'
 
 const Aboutpage = () => {
 
-   document.title = "WebFlix | About"
+  document.title = "WebFlix | About";
 
-  return (
+return (
     <div className='about relative p-2 bg-black w-screen h-screen font-["gilroy"] text-white overflow-auto overflow-x-auto'>
       <nav className='flex w-[100%] bg-black h-[10vh] text-white items-center justify-center'>
         <h1 className="anim flex items-center justify-center font-semibold text-3xl">
@@ -280,7 +280,7 @@ const Aboutpage = () => {
         </div>
 
     </div>
-  )
+  );
 }
 
 export default Aboutpage

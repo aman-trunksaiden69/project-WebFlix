@@ -7,6 +7,9 @@ import Loader from "./Loader";
 import Dropdown from "./Templates/Dropdown";
 
 const Peopledetails = () => {
+  
+  document.title = "People Details | Peoples";
+
   const navigate = useNavigate();
   const { id } = useParams();
   const { info } = useSelector((state) => state.people);
@@ -19,6 +22,7 @@ const Peopledetails = () => {
       dispatch(removepeopledata());
     };
   }, [dispatch, id]);
+
 
   return info ? (
     <div className="relative w-screen h-screen overflow-auto overflow-x-hidden p-2 font-['gilroy']">

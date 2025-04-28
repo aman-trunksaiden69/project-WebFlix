@@ -7,8 +7,14 @@ import tvReducer from './Reducers/Tvslice'
 
 export const store = configureStore({
   reducer: {
+    //handle movie related data
     movie: movieReducer,
+
+    //handle tv related data
     tv: tvReducer,
+
+    //handle people related data
     people: peopleReducer
   },
-})
+
+});

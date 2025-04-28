@@ -10,9 +10,7 @@ const Login = () => {
   document.title = `WebFlix | Login`;
 
 
-  const { user, setUser, setToken, token } = useContext(userDataContext);
-  console.log('Loginpage userData from context:', user);
-  console.log('Loginpage Token from context:', token);
+  const { setUser } = useContext(userDataContext);
   
 
   const Navigate = useNavigate();
@@ -38,7 +36,6 @@ const Login = () => {
 
       if (response.status === 200) {
         const data = response.data;
-        console.log("Loginpage Response normal:", data);
         setUser(data?.user || null);
         localStorage.setItem('token', data.token);
         Navigate('/Home');
@@ -73,7 +70,7 @@ const Login = () => {
     const params = new URLSearchParams(window.location.search);
     const authToken = params.get("token");
     
-    // If token is found in URL, save it to local storage and redirect to profile page
+    // If token is found in URL, save it to local storage and redirect to home page
     if (authToken) {
       localStorage.setItem("token", authToken, { expires:"1d"});
       Navigate("/Home", { replace: true });

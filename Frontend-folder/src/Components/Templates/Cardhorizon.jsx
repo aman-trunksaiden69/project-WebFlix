@@ -27,9 +27,10 @@ const Cardhorizon = ({data}) => {
       </Link>
       
       )) : 
-        <h1 className="text-3xl mt-5 text-white font-black text-center">
+        <h1 className="text-2xl mt-5 bg-black text-white font-black text-center">
         Nothing to show
-        </h1>} 
+        </h1>
+      } 
 
           
   </div>

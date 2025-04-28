@@ -4,6 +4,7 @@ import axios from "axios";
 export const userDataContext = createContext();
 
 const UserContext = ({ children }) => {
+
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
@@ -51,7 +52,7 @@ const UserContext = ({ children }) => {
 
   }, [token]);
 
-  return (
+return (
     <userDataContext.Provider value={{ user, setUser, errorMessage, loading, token, setToken }}>
       {children}
     </userDataContext.Provider>

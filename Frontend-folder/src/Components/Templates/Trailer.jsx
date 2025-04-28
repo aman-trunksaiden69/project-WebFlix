@@ -5,14 +5,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Notfound from "../Notfound";
 
 const Trailer = () => {
-    const navigate = useNavigate();
-    const {pathname} = useLocation();
-    const category = pathname.includes("movie") ? "movie" : "tv";
-    const trailervideo = useSelector(state => state[category].info.videos);
-    
+
+  const navigate = useNavigate();
+  const {pathname} = useLocation();
+  const category = pathname.includes("movie") ? "movie" : "tv";
+  const trailervideo = useSelector(state => state[category].info.videos);
 
 
-  return (
+return (
 
     <div className='bg-[rgba(0,0,0,.9)] absolute z-[100] top-0 left-0 w-screen h-screen flex items-center justify-center'>
         <Link
@@ -30,7 +30,7 @@ const Trailer = () => {
         }
         
     </div>
-  )
+  );
 }
 
 export default Trailer

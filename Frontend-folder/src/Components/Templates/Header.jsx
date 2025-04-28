@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Header = ({data}) => {
 
   
-  return (
+return (
     <div style={{
       background: `url(https://image.tmdb.org/t/p/original/${
         data.backdrop_path || data.profile_path
@@ -45,7 +45,7 @@ const Header = ({data}) => {
         Watch Trailer
         </Link>
     </div>
-  )
+  );
 } 
 
 export default Header

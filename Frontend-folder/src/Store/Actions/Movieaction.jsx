@@ -3,8 +3,9 @@ import { loadmoviedata } from "../Reducers/Movieslice";
 export { removemoviedata } from "../Reducers/Movieslice";
 
 
-
+//redux thunk action to load movie data
 export const asyncloadmoviedata = (id) => async (dispatch, getState) =>{
+
     try {
         const detail = await axios.get(`/movie/${id}`)
         const externalid = await axios.get(`/movie/${id}/external_ids`)
@@ -24,6 +25,7 @@ export const asyncloadmoviedata = (id) => async (dispatch, getState) =>{
             watchproviders: watchproviders.data.results.IN
         }
         
+        //store moviedata into store
         dispatch(loadmoviedata(alldetailsdata))
 
     } catch (error) {

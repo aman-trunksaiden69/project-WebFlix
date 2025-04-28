@@ -8,22 +8,22 @@ import { asyncloadmoviedata, removemoviedata } from '../Store/Actions/Movieactio
 
 const Moviedetails = () => {
 
-  document.title = "WebFlix | Movie Streaming"
+  document.title = "WebFlix | Movie Streaming";
 
-  const {pathname} = useLocation()
-  const navigate = useNavigate()
-  const {id} = useParams()
-  const dispatch = useDispatch()
-  const {info} = useSelector(state => state.movie)
+  const {pathname} = useLocation();
+  const navigate = useNavigate();
+  const {id} = useParams();
+  const dispatch = useDispatch();
+  const {info} = useSelector(state => state.movie);
  
 
   useEffect(() => {
-     dispatch(asyncloadmoviedata(id))
+    dispatch(asyncloadmoviedata(id))
 
-     return () => {
+    return () => {
       dispatch(removemoviedata())
-     }
-  }, [id])
+    }
+  }, [id]);
   
 
   return info ? (

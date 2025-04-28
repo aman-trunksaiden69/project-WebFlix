@@ -8,15 +8,13 @@ import { asyncloadtvdata, removetvdata } from '../Store/Actions/TVaction'
 
 const Tvdetails = () => {
 
-  document.title = "WebFlix | Tv Streaming"
+  document.title = "WebFlix | Tv Streaming";
 
-  const {pathname} = useLocation()
-  const navigate = useNavigate()
-  const {id} = useParams()
-  const dispatch = useDispatch()
-  const {info} = useSelector(state => state.tv)
- 
-
+  const {pathname} = useLocation();
+  const navigate = useNavigate();
+  const {id} = useParams();
+  const dispatch = useDispatch();
+  const {info} = useSelector(state => state.tv);
 
   useEffect(() => {
      dispatch(asyncloadtvdata(id))
@@ -24,10 +22,10 @@ const Tvdetails = () => {
      return () => {
       dispatch(removetvdata())
      }
-  }, [id])
+  }, [id]);
   
 
-  return info ? (
+return info ? (
     <div
       style={{
         background: `linear-gradient(rgba(0,0,0,.4),

@@ -19,17 +19,17 @@ const Logout = () => {
       Navigate('/Login');
     }
 
-  })
+  });
 
 
-  return (
+return (
     <div className=' w-screen h-screen flex items-center justify-center font-["gilroy"] bg-black'>
       <h1 className='text-green-500 font-semibold text-xl'>
       <i className="mr-1 ri-verified-badge-fill"></i>
         Logged Out Successfully!
       </h1>
     </div>
-  )
+  );
 }
 
 export default Logout

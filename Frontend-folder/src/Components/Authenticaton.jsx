@@ -6,30 +6,30 @@ import LOADER from './Loader';
 const Authenticaton = ({children}) => {
 
 
-    document.title = "WebFlix";
+  document.title = "WebFlix";
 
-    const Navigate = useNavigate();
+  const Navigate = useNavigate();
+  const [Loader, setLoader] = useState(true);
 
-    const [Loader, setLoader] = useState(true);
+  useEffect(() => {
+    const Tokens = localStorage.getItem('token')
+     if(!Tokens){
+        Navigate('/Login')
+    }else{
+        setLoader(false); 
+    }
+  }, [Navigate]);
 
-    useEffect(() => {
-        const Tokens = localStorage.getItem('token')
-        if(!Tokens){
-            Navigate('/Login')
-        }else{
-            setLoader(false); 
-        }
-    }, [Navigate])
-
-    if (Loader) {
-        // Display loader while checking token
-        return <div className='w-screen h-screen bg-black'>
-              <LOADER />
-            </div>; 
-      }
+  if (Loader) {
+    // Display loader while checking token
+    return <div className='w-screen h-screen bg-black'>
+    <LOADER />
+    </div>; 
+  }
     
 
-  return children;
+return children;
+
 }
 
 export default Authenticaton

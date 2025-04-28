@@ -10,15 +10,16 @@ import Loader from "./Loader"
 const Movie = () => {
 
 
-    document.title = "WebFlix | Movies"
-    const Navigate = useNavigate()
-    const [category, setcategory] = useState("now_playing")
-    const [getmovie, setgetmovie] = useState([])
-    const [page, setpage] = useState(1)
-    const [hasMore, sethasMore] = useState(true)
+  document.title = "WebFlix | Movies";
+
+  const Navigate = useNavigate();
+  const [category, setcategory] = useState("now_playing");
+  const [getmovie, setgetmovie] = useState([]);
+  const [page, setpage] = useState(1);
+  const [hasMore, sethasMore] = useState(true);
 
 
-    const MovieshowsHandler = async() => {
+  const MovieshowsHandler = async() => {
         try {
           const {data} = await axios.get(`/movie/${category}?page=${page}`)
     
@@ -32,28 +33,25 @@ const Movie = () => {
         }catch (error) {
           console.log("Error:", error)
         }
-      }
+  };
     
-      const refreshHandler = () => {
-          if(getmovie === 0){
-            MovieshowsHandler()
-          } else{
-             setpage(1)
-             setgetmovie([])
-             MovieshowsHandler()
+  const refreshHandler = () => {
+      if(getmovie === 0){
+          MovieshowsHandler()
+      } else{
+          setpage(1)
+          setgetmovie([])
+          MovieshowsHandler()
         
-          }
       }
+  };
     
-    
-      useEffect(() => {
-         refreshHandler()
-      }, [category])
-      
- 
+  useEffect(() => {
+    refreshHandler()
+  },[category]);
 
 
-  return getmovie.length > 0 ? (
+return getmovie.length > 0 ? (
   
   <div className='movie w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-300 via-pink-400 to-white flex flex-col gap-1 items-center'>
 

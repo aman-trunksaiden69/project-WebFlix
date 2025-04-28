@@ -10,50 +10,47 @@ import Loader from "./Loader"
 
 const Tvshowspage = () => {
 
-  
-    document.title = "WebFlix | Tv Shows"
-    const Navigate = useNavigate()
-    const [category, setcategory] = useState("airing_today")
-    const [gettvshows, setgettvshows] = useState([])
-    const [page, setpage] = useState(1)
-    const [hasMore, sethasMore] = useState(true)
+  document.title = "WebFlix | Tv Shows";
 
+  const Navigate = useNavigate();
+  const [category, setcategory] = useState("airing_today");
+  const [gettvshows, setgettvshows] = useState([]);
+  const [page, setpage] = useState(1);
+  const [hasMore, sethasMore] = useState(true);
 
-    const TvshowsHandler = async() => {
-        try {
-          const {data} = await axios.get(`/tv/${category}?page=${page}`)
+  const TvshowsHandler = async() => {
+      try {
+        const {data} = await axios.get(`/tv/${category}?page=${page}`)
     
-         if(data.results.length > 0){
+        if(data.results.length > 0){
           setgettvshows((prevState) => [...prevState, ...data.results])
           setpage(page+1)
-         } else{
+        } else{
           sethasMore(false)
-         }
-      
-        }catch (error) {
-          console.log("Error:", error)
         }
-      }
-    
-      const refreshHandler = () => {
-          if(gettvshows === 0){
-            TvshowsHandler()
-          } else{
-             setpage(1)
-             setgettvshows([])
-             TvshowsHandler()
-        
-          }
-      }
-    
-    
-      useEffect(() => {
-         refreshHandler()
-      }, [category])
       
+      }catch (error) {
+        console.log("Error:", error)
+      }
+  };
+    
+  const refreshHandler = () => {
+
+    if(gettvshows === 0){
+      TvshowsHandler()
+    } else{
+      setpage(1)
+      setgettvshows([])
+      TvshowsHandler()   
+    }
+  };
+    
+  useEffect(() => {
+    refreshHandler()
+  }, [category]);    
  
 
-  return gettvshows.length > 0 ? ( 
+return gettvshows.length > 0 ? ( 
   
   <div className='tvshow w-screen h-screen overflow-hidden overflow-y-auto bg-gradient-to-r from-blue-300 via-pink-400 to-white flex flex-col gap-1 items-center'>
 
@@ -98,7 +95,7 @@ const Tvshowspage = () => {
 
   ):(
     <Loader />
-  )
+  );
 }
 
 export default Tvshowspage

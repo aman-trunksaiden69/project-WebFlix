@@ -3,10 +3,10 @@ import { Link} from 'react-router-dom'
 
 const Start = () => {
 
-    document.title = `WebFlix | Start`;
+  document.title = `WebFlix | Start`;
 
 
-  return (
+return (
     <div className='flex flex-col justify-between h-screen w-screen bg-[#000] text-white font-["gilroy"]'>
     
     <div className='h-[60%] w-full'>
@@ -35,7 +35,7 @@ const Start = () => {
     </div>
   
   </div>
-  )
+  );
 }
 
 export default Start

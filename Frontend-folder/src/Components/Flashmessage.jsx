@@ -2,17 +2,17 @@ import { useEffect, useState } from 'react'
 
 const Flashmessage = ({Geterror, Errorkey, Duration = 4000}) => {
    
- const [Visible, setVisible] = useState(false)
+  const [Visible, setVisible] = useState(false)
 
- useEffect(() => {
+  useEffect(() => {
     if (Geterror) {
         setVisible(true);
         const Time = setTimeout(() => setVisible(false), Duration);
         return () => clearTimeout(Time);
     }
-}, [Geterror, Duration, Errorkey]);
+  }, [Geterror, Duration, Errorkey]);
     
-  return (
+return (
     Visible && (
         <div className="absolute top-[2%] left-[75%] text-white text-center text-xl font-bold p-4 rounded-xl shadow-md max-md:w-[90vw] max-md:text-sm"
             style={{
@@ -31,7 +31,7 @@ const Flashmessage = ({Geterror, Errorkey, Duration = 4000}) => {
         </div>
     )
     
-  )
+  );
 }
 
 export default Flashmessage

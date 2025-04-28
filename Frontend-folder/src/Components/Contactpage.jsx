@@ -3,24 +3,23 @@ import { useNavigate } from 'react-router-dom'
 
 const Contactpage = () => {
 
-   document.title = "WebFlix | Contact"
+  document.title = "WebFlix | Contact";
 
-   const Navigate = useNavigate()
-   const [isOpen, setIsOpen] = useState(false);
+  const Navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setVisibility] = useState(false);
 
-   const toggleContent = () => {
+  const toggleContent = () => {
     setIsOpen(!isOpen);
-   };
+  };
 
-   const [isVisible, setVisibility] = useState(false);
-
+ 
   const handleToggle = () => {
     setVisibility(!isVisible);
   };
 
    
-
-  return (
+return (
     <div className='contact relative h-screen w-screen bg-gradient-to-r from-blue-300 via-pink-400 to-white font-["gilroy"] text-white'>
         <nav className='w-[100%] bg-black h-[15%] text-white flex'>
         <div className='flex items-center justify-center gap-2 w-[70%]'>
@@ -173,7 +172,7 @@ const Contactpage = () => {
        </div>
        </div> 
     </div>
-  )
-   }
+  );
+}
 
 export default Contactpage

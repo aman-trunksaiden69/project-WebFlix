@@ -12,47 +12,49 @@ import Loader from "./Loader"
 const Popularpage = () => {
 
 
-    document.title = "WebFlix | Popular"
-    const Navigate = useNavigate()
-    const [category, setcategory] = useState("movie")
-    const [getpopular, setgetpopular] = useState([])
-    const [page, setpage] = useState(1)
-    const [hasMore, sethasMore] = useState(true)
+  document.title = "WebFlix | Popular";
+
+  const Navigate = useNavigate();
+  const [category, setcategory] = useState("movie");
+  const [getpopular, setgetpopular] = useState([]);
+  const [page, setpage] = useState(1);
+  const [hasMore, sethasMore] = useState(true);
 
 
-    const PopularshowsHandler = async() => {
-        try {
-          const {data} = await axios.get(`${category}/popular?page=${page}`)
+  const PopularshowsHandler = async() => {
+      
+    try {
+        const {data} = await axios.get(`${category}/popular?page=${page}`)
     
-         if(data.results.length > 0){
+        if(data.results.length > 0){
           setgetpopular((prevState) => [...prevState, ...data.results])
           setpage(page+1)
-         } else{
+        } else{
           sethasMore(false)
-         }
-      
-        }catch (error) {
-          console.log("Error:", error)
         }
-      }
-    
-      const refreshHandler = () => {
-          if(getpopular === 0){
-            PopularshowsHandler()
-          } else{
-             setpage(1)
-             setgetpopular([])
-             PopularshowsHandler()
-        
-          }
-      }
-    
-    
-      useEffect(() => {
-         refreshHandler()
-      }, [category])
       
- 
+    }catch (error) {
+      console.log("Error:", error)
+    }
+  };
+    
+  const refreshHandler = () => {
+
+    if(getpopular === 0){
+      PopularshowsHandler()
+    } else{
+      setpage(1)
+      setgetpopular([])
+      PopularshowsHandler()
+        
+    }
+  };
+    
+  useEffect(() => {
+    refreshHandler()
+  }, [category]);
+      
+
 
   return getpopular.length > 0 ? (
   

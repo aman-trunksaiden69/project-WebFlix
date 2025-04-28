@@ -11,13 +11,13 @@ const Registerpage = () => {
 
   
 
-   const { setUser } = useContext(userDataContext);
-   const Navigate = useNavigate();
+  const { setUser } = useContext(userDataContext);
+  const Navigate = useNavigate();
 
-   const [Email, setEmail] = useState("");
-   const [Username, setUsername] = useState("");
-   const [Age, setAge] = useState("");
-   const [Password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Username, setUsername] = useState("");
+  const [Age, setAge] = useState("");
+  const [Password, setPassword] = useState("");
 
    
   const HandleFormSubmit = async (e) => {
@@ -38,7 +38,6 @@ const Registerpage = () => {
    }
   );
 
-  console.log("Backend Response registerpage:", response);
 
   if(response.status === 201){
      const data = response.data;
@@ -63,9 +62,9 @@ const Registerpage = () => {
       const user = await axios.get('https://webflix-server-rcqi.onrender.com/auth/google/callback');
       console.log(user);
       Navigate('/Home');
-    };
+  };
   
-    useEffect(() => {
+  useEffect(() => {
       // Extract token from URL
       const params = new URLSearchParams(window.location.search);
       const authToken = params.get("token");
@@ -75,8 +74,7 @@ const Registerpage = () => {
         localStorage.setItem("token", authToken, { expires:"1d"});
         Navigate("/Home", { replace: true });
       }
-    }, [Navigate]);
-  
+  }, [Navigate]);
 
 
   return (

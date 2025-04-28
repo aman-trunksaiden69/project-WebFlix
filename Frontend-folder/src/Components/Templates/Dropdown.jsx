@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Dropdown = ({title, options, func}) => {
-  return (
-    <div className='select'>
-        <select onChange={func} defaultValue="0" name='format' id='format'>
+
+return (
+  <div className='select'>
+      <select onChange={func} defaultValue="0" name='format' id='format'>
         <option value="0" disabled>
              {title}
         </option>
@@ -13,7 +14,7 @@ const Dropdown = ({title, options, func}) => {
              {o.toUpperCase()}
             </option>
         ))}
-        </select>
+      </select>
     </div>
   )
 }

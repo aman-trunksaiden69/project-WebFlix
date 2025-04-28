@@ -6,39 +6,39 @@ import { userDataContext } from '../../Context/UserContext';
 
 const Editprofile = () => {
 
-    const Navigate = useNavigate();
-    const { user, setUser } = useContext(userDataContext);
-
-
-    const [profilePhoto, setProfilePhoto] = useState(null);
-    const [username, setUsername] = useState('');
-    const [message, setMessage] = useState("")
-    
-
-    useEffect(() => {
-      if (user) setUsername(user.username);
-    }, [user]);
   
+  const { user, setUser } = useContext(userDataContext);
 
-    const handleFileChange = (e) => {
-        setProfilePhoto(e.target.files[0]);
-      };
+  const Navigate = useNavigate();
+  const [profilePhoto, setProfilePhoto] = useState(null);
+  const [username, setUsername] = useState('');
+  const [message, setMessage] = useState("");
     
 
-    const submitHandler = async (e) => {
+  useEffect(() => {
+    if (user) setUsername(user.username);
+  }, [user]);
+  
+  const handleFileChange = (e) => {
+    setProfilePhoto(e.target.files[0]);
+  };
+    
+  const submitHandler = async (e) => {
    
-        e.preventDefault();
+    e.preventDefault();
 
-        const token = localStorage.getItem("token");
-        if(!token){
-            setMessage("User not Authenticate!")
-            return;
-        }
+      const token = localStorage.getItem("token");
+
+      if(!token){
+        setMessage("User not Authenticate!")
+        return;
+      }
         
-        //sending data to backend-
-        const formData = new FormData();
-        formData.append("username", username);
-        if (profilePhoto) formData.append("photo", profilePhoto);
+      //sending data to backend-
+      const formData = new FormData();
+      formData.append("username", username);
+
+      if (profilePhoto) formData.append("photo", profilePhoto);
 
         try{
 
@@ -52,22 +52,22 @@ const Editprofile = () => {
          );           
 
 
-          //update new user-
-          setUser({ ...user, username: response.data.user.username, photo: response.data.user.photo });
-          setMessage("Profile updated successfully!");
-          Navigate('/Profile')
+        //update new user-
+        setUser({ ...user, username: response.data.user.username, photo: response.data.user.photo });
+        setMessage("Profile updated successfully!");
+        Navigate('/Profile')
 
         }catch(error){
          console.log("Error details:", error);
-         setMessage(error.response?.data?.message || "Something went wrong!");
+         setMessage(error.response?.data?.message || "Something went wrong while updating photo and username!");
         }
 
-    };
+  };
 
-    return (
-        <div className='w-screen h-screen bg-black font-["gilroy"]'>
+return (
+    <div className='w-screen h-screen bg-black font-["gilroy"]'>
            
-            <div className='flex items-center h-[10%] w-[100%] mb-12'>
+        <div className='flex items-center h-[10%] w-[100%] mb-12'>
             
               <h1 className='text-xl font-normal text-white'>
                <i onClick={() => Navigate(-1)} 
@@ -75,9 +75,9 @@ const Editprofile = () => {
                  Edit profile
               </h1>
               
-            </div>
+        </div>
             
-            <form 
+        <form 
               onSubmit={submitHandler} 
               className='edit relative flex items-center gap-14 justify-center flex-col h-[55%] w-[100%] p-2'>
                 <label htmlFor='photoinput'>
@@ -119,12 +119,12 @@ const Editprofile = () => {
                 </button>
                 </div>
                 
-            </form>
+        </form>
 
 
        
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Editprofile

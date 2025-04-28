@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     info: null,
-  }
+}
 
-  export const Movieslice = createSlice({
+export const Movieslice = createSlice({
     name: 'movie',
     initialState,
     reducers: {
@@ -17,10 +17,9 @@ const initialState = {
             state.info = null
         }
     },
-  })
+});
   
-  // Action creators are generated for each case reducer function
-  export const { loadmoviedata, removemoviedata } = Movieslice.actions
+// Action creators are generated for each case reducer function
+export const { loadmoviedata, removemoviedata } = Movieslice.actions;
   
-  export default Movieslice.reducer
-  
+export default Movieslice.reducer;

@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { userDataContext } from '../Context/UserContext';
+import Loader from './Loader';
 
 
 const Profile = () => {
+
   const Navigate = useNavigate();
   const { user, loading } = useContext(userDataContext);
-  console.log(user);
 
-
-
-  if (loading) return <div>Loading...</div>;
-
-  return (
+  if (loading) return <Loader />;
+  
+  
+return (
     <div className='w-screen h-screen bg-black font-["gilroy"]'>
       <div className='flex h-[10%] w-[100%]'>
         <div className='w-full flex items-center justify-between'>
@@ -41,7 +41,7 @@ const Profile = () => {
             alt=''
           />
           <h2 className='text-2xl text-white font-semibold capitalize'>
-            {user?.username || 'Loading...'}
+            {user?.username || 'Edit your profile'}
           </h2>
         </Link>
 
