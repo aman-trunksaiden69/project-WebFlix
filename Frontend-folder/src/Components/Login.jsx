@@ -21,6 +21,11 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    const form = e.target;
+    const Email = form.querySelector('input[type="text"]')?.value.trim();
+    const Password = form.querySelector('input[type="password"]')?.value.trim();
+
     
     const newUser = {
       email: Email,
@@ -99,6 +104,7 @@ const Login = () => {
                 placeholder='Enter Email'
                 value={Email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete='email'
                 required
                 className='focus:outline-none hover:border-pink-700 px-3 py-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
               />
@@ -108,6 +114,7 @@ const Login = () => {
                 placeholder='Enter Password' 
                 value={Password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete='current-password'
                 required 
                 className='focus:outline-none hover:border-pink-700 px-3 py-2 text-pink-400 font-medium rounded-sm bg-[#130F10] border-[2px] border-white placeholder-pink-400 placeholder:text-md'
               />
