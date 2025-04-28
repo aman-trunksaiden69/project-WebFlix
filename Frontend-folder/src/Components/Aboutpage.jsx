@@ -80,7 +80,7 @@ return (
         <div className='mt-2'>
               <h1 className='text-md'>
                Back in 2012, when the idea of online streaming platforms was still taking shape, 
-               I am, Arsalan, along with my friends Kunal, Ziya, Suhani, and Hanshika, set together
+               I am, Arsalan, along with my friends govind, oshika, anshika, and jenny, set together
                to brainstorm something that would change the entertainment world.Our vision was clear: to provide people worldwide with access to all kinds of entertainment—movies, 
               documentaries, web series, and content across various genres. We wanted to create a platform that 
               would serve everyone, everywhere.
@@ -113,11 +113,11 @@ return (
 
             <div className='mt-2'>
               <h1 className='text-md'>
-              Kunal was instrumental in the technical foundation of Webflix. His knowledge in coding and tech 
-              infrastructure laid the groundwork for what would become our platform. Ziya brought a creative 
+              govind was instrumental in the technical foundation of Webflix. His knowledge in coding and tech 
+              infrastructure laid the groundwork for what would become our platform. oshika brought a creative 
               edge to the table, ensuring that Webflix had a vibrant and engaging user experience, making 
-              sure users kept coming back. Suhani’s role in managing partnerships and licensing made it 
-              possible for us to secure diverse content from around the globe. Hanshika, with her 
+              sure users kept coming back. anshika role in managing partnerships and licensing made it 
+              possible for us to secure diverse content from around the globe. jenny, with her 
               business acumen, was pivotal in strategizing our growth into international markets. 
               Together, we built not just a company, but a vision.
               </h1>
@@ -229,7 +229,7 @@ return (
                <p className='text-sm font-medium text-[#1E1E1E]'>
                "Bringing the world together, one story at a time. At Webflix, entertainment knows no boundaries."
                <br></br>
-               -TRUNKS~
+               -Arsalan~
                </p>
                 
                <h1 className='text-md font-black text-black mt-4'>Our Services at Webflix</h1>
